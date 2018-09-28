@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './core/components/login/login.component';
 import { QuestionListComponent } from './fopt/components/question-list/question-list.component';
+import { HomeComponent } from './core/components/home/home.component';
 
 
 
@@ -28,7 +29,8 @@ import { QuestionListComponent } from './fopt/components/question-list/question-
     AngularFireModule.initializeApp(environment.firebase), //TODO_Ghislain: why here?
     RouterModule.forRoot([
       { path: '', component: QuestionListComponent },
-      { path: 'login', component: LoginComponent },
+      { path: 'app-login', component: LoginComponent },
+      { path: 'app-home', component: HomeComponent }, ////TODO_Ghislain: why here? maybe in CoreModule???
     ])
   ],
   providers: [

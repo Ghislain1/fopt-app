@@ -19,6 +19,7 @@ export class TopNavbarComponent implements OnInit {
   }
 
   async ngOnInit() {
+
     var fakeAppUser = {
       "name": "Fake User Admin!",
       "email": "string",
