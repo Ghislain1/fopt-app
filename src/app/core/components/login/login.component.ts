@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
 
   login() {
+    alert('OKK');
     this.auth.login();
   }
 

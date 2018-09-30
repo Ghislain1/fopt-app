@@ -6,9 +6,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
 import { AppUser } from '../models/app-user';
-
-
-
+import { LoggerService } from './logger.service';
 
 @Injectable()
 export class AuthService {
@@ -16,26 +14,29 @@ export class AuthService {
 
   constructor(
     private userService: UserService,
-    //  private afAuth: AngularFireAuth,
+    private afAuth: AngularFireAuth,
     private route: ActivatedRoute) {
-
-    //  this.user$ = afAuth.authState;
+    this.user$ = afAuth.authState;
   }
 
   login() {
-    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl);
 
-    // this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
   }
 
   logout() {
-    //  this.afAuth.auth.signOut();
+    this.afAuth.auth.signOut();
   }
 
   get appUser$(): Observable<AppUser> {
+    return this.user$.pipe(switchMap(user => {
+      // if (user) {
+        return this.userService.get(user.uid);
+   //   }
 
-    //TODO-Ghislain: get user app from database!!.
-    return new Observable<AppUser>();
+      // return Observable.of(null);
+    }));
   }
 }

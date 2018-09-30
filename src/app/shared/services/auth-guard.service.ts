@@ -4,9 +4,9 @@ import { Router, RouterStateSnapshot } from '@angular/router';
 import { map } from 'rxjs/operators';
 
 
-//TODO:Ghislain - What does this class?
+// TODO:Ghislain - What does this class?
 @Injectable({
-  providedIn: 'root' //TODO-GHislain-  What does mean??
+  providedIn: 'root' // TODO-GHislain-  What does mean??
 })
 export class AuthGuard {
 
@@ -17,10 +17,11 @@ export class AuthGuard {
   canActivate(route, state: RouterStateSnapshot) {
     return this.auth.user$.pipe(map(user => {
       if (user) {
+        alert('oo');
+
         return true;
       }
-
-      this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+      this.router.navigate(['/app-login'], { queryParams: { returnUrl: state.url } });
       return false;
     }));
   }

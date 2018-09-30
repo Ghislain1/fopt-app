@@ -1,0 +1,10 @@
+<p>
+  user-list works!
+</p>
+
+
+<ul>
+  <li *ngFor="let item of users$ | async">
+    {{ item.firstname}}
+  </li>
+</ul>
