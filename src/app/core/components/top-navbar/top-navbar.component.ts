@@ -12,23 +12,24 @@ import { AuthService } from '../../../shared/services/auth.service';
 })
 export class TopNavbarComponent implements OnInit {
 
+
   appUser: AppUser;
   answeredQ$: Observable<AnsweredQuestion>;
 
   constructor(private auth?: AuthService, private answeredQuestionService?: AnsweredQuestionService) {
+    let currentUser$ = this.auth.appUser$;
+    console.log(currentUser$);
+
+    currentUser$.subscribe(appUser => {
+
+      this.appUser = appUser
+    }
+    );
   }
 
-  async ngOnInit() {
+  ngOnInit() {
 
-    // var fakeAppUser = {
-    //   "name": "Fake User Admin!",
-    //   "email": "string",
-    //   "isAdmin": true
-    // };
-
-    // this.appUser = fakeAppUser;
-    this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
-    this.answeredQ$ = await this.answeredQuestionService.getAnsweredQ();
+    //   this.answeredQ$ = await this.answeredQuestionService.getAnsweredQ();
   }
 
   logout() {

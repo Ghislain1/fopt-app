@@ -9,18 +9,18 @@ import { map } from 'rxjs/operators';
 export class AnsweredQuestionService {
   constructor(private db: AngularFireDatabase) { }
 
-  async getAnsweredQ(): Promise<Observable<ShoppingAnsweredQ>> {
-    let AnsweredQId = await this.getOrCreateAnsweredQId();
-    return this.db.object('/shopping-AnsweredQs/' + AnsweredQId)
-      .pipe(map(x => new ShoppingAnsweredQ(x.items)));
-  }
+  // async getAnsweredQ(): Promise<Observable<ShoppingAnsweredQ>> {
+  //   let AnsweredQId = await this.getOrCreateAnsweredQId();
+  //   return this.db.object('/shopping-AnsweredQs/' + AnsweredQId)
+  //     .pipe(map(x => new ShoppingAnsweredQ(x.items)));
+  // }
 
   async addToAnsweredQ(question: Question) {
-    this.updateItem(question, 1);
+    // this.updateItem(question, 1);
   }
 
   async removeFromAnsweredQ(question: Question) {
-    this.updateItem(question, -1);
+    //  this.updateItem(question, -1);
   }
 
   async clearAnsweredQ() {
@@ -48,18 +48,18 @@ export class AnsweredQuestionService {
     return result.key;
   }
 
-  private async updateItem(question: Question, change: number) {
-    let AnsweredQId = await this.getOrCreateAnsweredQId();
-    let item$ = this.getItem(AnsweredQId, question.$key);
-    item$.take(1).subscribe(item => {
-      let quantity = (item.quantity || 0) + change;
-      if (quantity === 0) item$.remove();
-      else item$.update({
-        title: question.title,
-        imageUrl: question.imageUrl,
-        price: question.price,
-        quantity: quantity
-      });
-    });
-  }
+  // private async updateItem(question: Question, change: number) {
+  //   let AnsweredQId = await this.getOrCreateAnsweredQId();
+  //   let item$ = this.getItem(AnsweredQId, question.$key);
+  //   item$.take(1).subscribe(item => {
+  //     let quantity = (item.quantity || 0) + change;
+  //     if (quantity === 0) item$.remove();
+  //     else item$.update({
+  //       title: question.title,
+  //       imageUrl: question.imageUrl,
+  //       price: question.price,
+  //       quantity: quantity
+  //     });
+  //   });
+  // }
 }

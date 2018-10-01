@@ -12,8 +12,9 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './core/components/login/login.component';
 import { QuestionListComponent } from './fopt/components/question-list/question-list.component';
 import { HomeComponent } from './core/components/home/home.component';
-import { UserListComponent } from './admin/components/user-list/user-list.component';
+
 import { AuthGuard } from './shared/services/auth-guard.service';
+import { AdminAuthGuard } from './admin/services/admin-auth-guard.service';
 
 
 
@@ -30,13 +31,13 @@ import { AuthGuard } from './shared/services/auth-guard.service';
     CoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), // TODO_Ghislain: why here?
     RouterModule.forRoot([
-      { path: '', redirectTo: 'app-login', pathMatch: 'full' },
-      { path: 'app-login', component: LoginComponent, canActivate: [AuthGuard] },
+      { path: '', redirectTo: 'app-home', pathMatch: 'full' },
+      { path: 'app-login', component: LoginComponent }, // TODO-Ghislain: , canActivate: [AuthGuard] should be add why?
       { path: 'app-home', component: HomeComponent }, //// TODO_Ghislain: why here? maybe in CoreModule???
     ])
   ],
   providers: [
-    // AdminAuthGuard,
+    AdminAuthGuard,
   ],
   bootstrap: [AppComponent]
 })

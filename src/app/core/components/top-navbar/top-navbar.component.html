@@ -30,13 +30,13 @@
         <li ngbDropdown *ngIf="appUser; else anonymousUser" class="nav-item dropdown">
           <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-            {{ appUser.name }}
+            {{ appUser.displayName }}
           </a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" routerLink="/my/orders">My Answered Questions</a>
+            <!-- <a class="dropdown-item" routerLink="/my/orders">My Answered Questions</a> -->
             <ng-container *ngIf="appUser.isAdmin">
               <a class="dropdown-item" routerLink="/admin/users">Manage Users</a>
-              <a class="dropdown-item" routerLink="/admin/questions">Manage Questions</a>
+              <a class="dropdown-item" routerLink="/admin/questions/lists">Manage Questions</a>
             </ng-container>
 
             <a class="dropdown-item" routerLink="/app-home">Home</a>
