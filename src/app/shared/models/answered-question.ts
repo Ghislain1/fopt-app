@@ -12,7 +12,7 @@ export class AnsweredQuestion {
     items: AnsweredQuestionItem[] = [];
 
     //TODO_Ghislain: What means this  given paramter  syntax: -->  private itemsMap: { [questionId: string]: AnsweredQuestionItem }
-    constructor(private itemsMap: { [questionId: string]: AnsweredQuestionItem }) {
+    constructor(private itemsMap?: { [questionId: string]: AnsweredQuestionItem }) {
 
         //TODO_Ghislain: Canb you explain this || {}
         this.itemsMap = itemsMap || {};

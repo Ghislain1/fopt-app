@@ -1,7 +1,11 @@
+import { AnsweredQuestionItem } from './../models/answered-question-item';
+import { Question } from './../models/question';
 import { Injectable } from '@angular/core';
-import { Question } from '../models/question';
+
 import { AngularFireDatabase } from 'angularfire2/database';
 import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { AnsweredQuestion } from '../models/answered-question';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +13,11 @@ import { map } from 'rxjs/operators';
 export class AnsweredQuestionService {
   constructor(private db: AngularFireDatabase) { }
 
-  // async getAnsweredQ(): Promise<Observable<ShoppingAnsweredQ>> {
-  //   let AnsweredQId = await this.getOrCreateAnsweredQId();
-  //   return this.db.object('/shopping-AnsweredQs/' + AnsweredQId)
-  //     .pipe(map(x => new ShoppingAnsweredQ(x.items)));
-  // }
+  async getAnsweredQ(): Promise<Observable<AnsweredQuestion>> {
+    let AnsweredQId = await this.getOrCreateAnsweredQId();
+    return this.db.object('/shopping-AnsweredQs/' + AnsweredQId).valueChanges().pipe(map(x => new AnsweredQuestion()));
+
+  }
 
   async addToAnsweredQ(question: Question) {
     // this.updateItem(question, 1);

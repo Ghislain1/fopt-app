@@ -4,31 +4,31 @@ import { CanActivate, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserService } from '../../shared/services/user-service';
 import { map } from 'rxjs/operators';
+import { AppUser } from '../../shared/models/app-user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminAuthGuard implements CanActivate {
 
-  constructor(private auth: AuthService) {
+  constructor(private authService: AuthService) {
 
   }
 
-  canActivate() {
+  canActivate(): Observable<boolean> {
 
-    return this.auth.user$.pipe(map((user: firebase.User) => {
-
-      //TODO_Ghsilain:-- This Check is wrong!!
-      if (user.email.length > 5) {
-        console.log(user.uid);
-        return true;
-      }
-      // Ghislai: if you are not a user please Login before 
-      //this.router.navigate(['/app-login'], { queryParams: { returnUrl: state.url } });
-      return false;
-    }));
+    return this.authService.appUser$.pipe(map((appUser: AppUser) => appUser.isAdmin));
   }
-
 }
+
+    //   //TODO_Ghsilain:-- This Check is wrong!!
+    //   if (user.is < 0) {
+    //     console.log(user.uid);
+    //     return true;
+    //   }
+    //   // Ghislai: if you are not a user please Login before 
+    //   //this.router.navigate(['/app-login'], { queryParams: { returnUrl: state.url } });
+    //   return false;
+    // }));
 
 

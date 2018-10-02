@@ -6,5 +6,6 @@ export interface Question {
     description: number; // Get and sets the phrase of the question
     chapter: string; // Whre the question should come from.
     imageUrl: string;
-    aid: string; //answer Id;
+    request: string;
+    qid: string; //answer Id;
 }

@@ -16,6 +16,8 @@ import { HomeComponent } from './core/components/home/home.component';
 import { AuthGuard } from './shared/services/auth-guard.service';
 import { AdminAuthGuard } from './admin/services/admin-auth-guard.service';
 
+import { DataTableModule } from "angular-6-datatable";
+
 
 
 
@@ -29,13 +31,15 @@ import { AdminAuthGuard } from './admin/services/admin-auth-guard.service';
     AdminModule,
     FoptModule,
     CoreModule,
+    DataTableModule,// TODO-GHislain: why? For  angular-6-datatable
     AngularFireModule.initializeApp(environment.firebaseConfig), // TODO_Ghislain: why here?
     RouterModule.forRoot([
       { path: '', redirectTo: 'app-home', pathMatch: 'full' },
       { path: 'app-login', component: LoginComponent }, // TODO-Ghislain: , canActivate: [AuthGuard] should be add why?
       { path: 'app-home', component: HomeComponent }, //// TODO_Ghislain: why here? maybe in CoreModule???
-    ])
-  ],
+    ],
+      { enableTracing: false }// <-- debugging purposes only)
+    )],
   providers: [
     AdminAuthGuard,
   ],

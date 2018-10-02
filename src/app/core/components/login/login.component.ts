@@ -39,29 +39,26 @@ export class LoginComponent implements OnInit {
   login() {
     this.loading = true;
     this.authService.login().then(function () {
-      console.log('this.returnUrl + admin/questions/new');
-      this.router.navigate([this.returnUrl + 'admin/questions/new']);
+      // console.log('this.returnUrl + admin/questions/new');
+      // this.router.navigate([this.returnUrl + 'admin/questions/new']);
     });
     this.loading = false;
   }
 
   loginWithGoogle() {
     this.loading = true;
-    this.loggerService.info('LoginComponent--> loginWithGoogle()', true);
-    this.authService.loginWithGoogle().then((data) => this.navigate(data));
-    this.loggerService.info('LoginComponent--> loginWithGoogle()', true);
+
+    this.authService.loginWithGoogle();
+
+    this.log("loginWithGoogle");
+    this.loading = false;
 
   }
 
-  navigate(data: firebase.auth.UserCredential) {
-    if (data.user) {
-      console.log(data.user + ' this.returnUrl + admin/questions/new');
-      // this.router.navigate(['admin/questions/new']);
-      console.log(data.user.displayName);
-      console.log(data.user.providerId);
-      const url = this.returnUrl + 'admin/question/lists';
-      this.router.navigate([url]);
-    }
 
+
+
+  private log(value: any): void {
+    console.log(JSON.stringify(value, null, 3));
   }
 }

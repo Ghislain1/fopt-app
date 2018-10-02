@@ -1,9 +1,10 @@
+
 import { Injectable } from '@angular/core';
 import { Observable, observable, of } from 'rxjs';
 import { switchMap, defaultIfEmpty } from 'rxjs/operators';
 import { UserService } from './user-service';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route } from '@angular/router';
 import * as firebase from 'firebase';
 import { AppUser } from '../models/app-user';
 import { LoggerService } from './logger.service';
@@ -19,6 +20,8 @@ export class AuthService {
     private loggerService: LoggerService,
     private route: ActivatedRoute) {
     this.user$ = afAuth.authState;
+    this.log(this.user$);
+    this.log(of([1, 2, 8]));
   }
 
 
@@ -34,17 +37,17 @@ export class AuthService {
   }
 
   logout() {
-    this.log('logout');
-    // this.afAuth.auth.signOut().then(function () {
-    //   console.log('// Sign-out successful.');
-    // }, function (error) {
-    //   console.log(error);
-    // });
+    this.log('logout()');
+    this.afAuth.auth.signOut().then(function () {
+
+
+    },
+      function (error) {
+        console.log(error);
+      });
   }
 
-  getRedirectResult() {
-    return this.afAuth.auth.getRedirectResult();
-  }
+
 
   /**
    * Login with Google account by calling a Method signInWithPopup()
@@ -53,7 +56,8 @@ export class AuthService {
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl);
     const provider = new firebase.auth.GoogleAuthProvider();
-    this.loggerService.info('AuthService--> loginWithGoogle()', true);
+
+    this.log("loginWithGoogle()");
     return this.afAuth.auth.signInWithPopup(provider);
   }
 
@@ -81,22 +85,28 @@ export class AuthService {
   }
 
   get appUser$(): Observable<AppUser> {
+    // return of(  {
+    //   displayName: user.displayName,
+    //   email: user.email,
+    //   isAdmin:  true
+    // });
+
     return this.user$.pipe(switchMap(user => {
       if (user) {
-        let userApp = {
-          displayName: user.displayName,
-          email: user.email,
-          isAdmin: user.email.length > 4 ? true : false, //TODO-Ghislain--> How to ask firebase if the user is an Admin?
-        }
+        // let userApp = {
+        //   displayName: user.displayName,
+        //   email: user.email,
+        //   isAdmin: user.email === 'gzeleu@googlemail.com' ? true : false, //TODO-Ghislain--> How to ask firebase if the user is an Admin?
+        // };
 
-        return of(userApp);
+
+        return this.userService.get(user.uid).valueChanges();
       }
-
-      alert("NO a UserApp");
       return of(user as any);
 
     }));
   }
+
 
   private log(value: any): void {
     console.log(JSON.stringify(value, null, 3));

@@ -9,7 +9,7 @@ import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { AdminQuestionListComponent } from './components/admin-question-list/admin-question-list.component';
 
 
-
+// TODO_GHislain: Best pratce all Component soll mit    canActivate: [AuthGuard, AdminAuthGuard] gekennzeichen werden!! why?
 
 @NgModule({
   imports: [
@@ -20,16 +20,10 @@ import { AdminQuestionListComponent } from './components/admin-question-list/adm
         component: QuestionFormComponent,
         canActivate: [AuthGuard, AdminAuthGuard]
       },
-
-      //     {
-      //       path: 'admin/products/:id',
-      //       component: ProductFormComponent,
-      //       canActivate: [AuthGuard, AdminAuthGuard]
-      //     },
       {
-        path: 'admin/question/lists',
+        path: 'app-admin-question-list',
         component: AdminQuestionListComponent,
-        canActivate: [AuthGuard, AdminAuthGuard] //TODO-GHislain: AuthGuard check if you are the user,  AdminAuthGuard checi if you are admin
+        canActivate: [AuthGuard, AdminAuthGuard] //TODO-GHislain: AuthGuard check if you are the user,  AdminAuthGuard check if you are admin
       },
 
     ])
