@@ -14,6 +14,7 @@ export class AdminQuestionListComponent implements OnInit, OnDestroy {
 
   questions: Question[];
   itemCount: number;
+  hasItems: boolean;
   subscription: Subscription;
   //tableResource: DataTable<Question>;
   items: Question[] = [];
@@ -22,9 +23,13 @@ export class AdminQuestionListComponent implements OnInit, OnDestroy {
   constructor(private QuestionService: QuestionService) {
 
     this.itemCount = 10;
+    this.hasItems = false;
     this.subscription = this.QuestionService.getAll()
       .subscribe(questions => {
         this.questions = questions as Question[];
+
+        this.log(this.questions);
+        this.hasItems = this.questions.length > 0 ? true : false;
         // this.initializeTable(this.questions);
       });
   }
@@ -58,5 +63,7 @@ export class AdminQuestionListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
   }
-
+  private log(value: any): void {
+    console.log(JSON.stringify(value, null, 3));
+  }
 }

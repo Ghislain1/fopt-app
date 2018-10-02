@@ -13,6 +13,7 @@ import { AnsweredQuestionService } from './services/answered-question.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { QuestionQuantityComponent } from './components/question-quantity/question-quantity.component';
+import { QuestionCardComponent } from './components/question-card/question-card.component';
 
 
 
@@ -26,7 +27,10 @@ import { QuestionQuantityComponent } from './components/question-quantity/questi
     AngularFireAuthModule,
     NgbModule.forRoot(),//TODO_Ghislain: can you explain why this here?
   ],
-  declarations: [QuestionQuantityComponent],
+  declarations: [
+    QuestionQuantityComponent,
+    QuestionCardComponent // TODO_Ghislain: Compoent to display each question!!
+  ],
   providers: [
     AuthService,
     AuthGuard,
@@ -37,8 +41,8 @@ import { QuestionQuantityComponent } from './components/question-quantity/questi
     // OrderService
   ],
   exports: [
-    // ProductCardComponent,
-    //ProductQuantityComponent,
+    QuestionCardComponent,
+    QuestionQuantityComponent,
     CommonModule,
     FormsModule,
     CustomFormsModule,
