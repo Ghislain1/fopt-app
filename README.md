@@ -2,8 +2,20 @@
 Übungen in Fortgeschrittene Programmiertechniken (FOPT) mit Java
 
 
-# Tricks
-this section should be moved to wiki
+# Howtos
+##  Coding
+1. Fork projects
+2. Clone the project
+3. Pull resquest
+4. Discussions
 
-*  npm ls <dependency'name> --> List the dependeny tree fron parent until  desired child
-*  to generate icon or create your own [here](https://www.favicon-generator.org/)
+## FOPT-Buch  Abschnitte
+
+
+## FOPT-Buch Übungsaufgaben
+
+## FOPT- Alte Klausure
+
+## FOPT- ASB-Aufgaben
+
+## FOPT- andere Übungsaufgaben
