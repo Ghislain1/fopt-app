@@ -2,11 +2,11 @@ package fopt.buch;
 
 // Eine Mölichkeit Java Thread zum Erzeugen und Starten
 // Ableiten der Klasse Thread 
-// Abschnitt 2.1.2 wird 2 Möglichkeit gezeigt!! 
-// was ist lambda ausdruck.
+// Abschnitt 2.1.2 wird 2 Möglichkeiten gezeigt!! 
+// Was ist lambda ausdruck?
 public class Loop1 extends Thread {
 
-	// Name der jeweils Thread zu sperichern.
+	// Name der jeweils Thread zu speichern.
 	private String myName;
 
 	public Loop1(String name) {		
