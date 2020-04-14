@@ -5,6 +5,8 @@ public class Bank
     // Zum Speichern alle Konten in einer Bank!
     private Account[] account;
 
+    private boolean locked;
+
     // Zum Speicher Anzahl der Konten
     private static int COUNT = 100;
 
@@ -21,6 +23,15 @@ public class Bank
     // Zum Ausführen einer Abbuchung oder einer Gutschrift
     public void transferMoney(int accountNumber, float amount)
     {
+        // Wir haben 2 Probleme hier:
+        // 1. Problem der Inkorrektheit
+        // 2. Problem der Ineffizienz --> Aktiven Warten oder Polling
+        while (this.locked)
+        {
+            // Kann leider Problem der Inkorrektheit feststellen?
+            System.out.println(this.locked);
+        }
+        this.locked = true;
         // Lesen des aktuallen Kontostandes mit Kontonummer accountNumber z.b. 2
         float oldBalance = this.account[accountNumber].getBalance();
         // Gutschrift oder Abbuchung berechnen
@@ -29,6 +40,8 @@ public class Bank
         this.account[accountNumber].setBalance(newBalance);
 
         this.printBalance(accountNumber, newBalance);
+        locked = false;
+
     }
 
     private void printBalance(int accountNumber, float amount)
