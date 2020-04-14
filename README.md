@@ -4,10 +4,11 @@
 
 # Howtos
 ##  Coding
-1. Fork projects
-2. Clone the project
-3. Pull resquest
-4. Discussions
+1. fopt-app should be used as workspace 
+2. Fork projects
+3. Clone the project
+4. Pull resquest
+5. Discussions
 
 ## FOPT-Buch  Abschnitte
 
