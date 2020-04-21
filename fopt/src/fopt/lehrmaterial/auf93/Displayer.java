@@ -28,12 +28,12 @@ public class Displayer extends Thread
 
             try
             {
-                this.semaphoreArray[1].acquire();
-
+                this.semaphoreArray[0].acquire();
                 this.say();
 
                 sleep((int) (Math.random() * 1000)); // Nur zu verlangsamen der
                                                      // Aufgabe
+
                 this.semaphoreArray[1].release();
 
             }
