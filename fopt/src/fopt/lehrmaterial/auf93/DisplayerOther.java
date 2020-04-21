@@ -2,11 +2,12 @@ package fopt.lehrmaterial.auf93;
 
 import java.util.concurrent.Semaphore;
 
-public class Displayer extends Thread
+public class DisplayerOther extends Thread
 {
+
     Semaphore[] semaphoreArray;
 
-    public Displayer(Semaphore[] semaphoreArray)
+    public DisplayerOther(Semaphore[] semaphoreArray)
     {
         super();
 
@@ -17,7 +18,7 @@ public class Displayer extends Thread
 
     private void say()
     {
-        System.out.println("Ich bin der eine");
+        System.out.println("Ich bin der andere");
     }
 
     @Override
@@ -25,16 +26,15 @@ public class Displayer extends Thread
     {
         while (true)
         {
-
             try
             {
-                this.semaphoreArray[1].acquire();
+                this.semaphoreArray[0].acquire();
 
                 this.say();
 
-                sleep((int) (Math.random() * 1000)); // Nur zu verlangsamen der
-                                                     // Aufgabe
-                this.semaphoreArray[1].release();
+                sleep((int) (Math.random() * 10000)); // Nur zu verlangsamen der
+                                                      // Aufgabe
+                this.semaphoreArray[0].release();
 
             }
             catch (InterruptedException e)
