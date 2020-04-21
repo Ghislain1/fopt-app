@@ -2,7 +2,7 @@ package fopt.buch.abschn2;
 
 public class Bank
 {
-    // Zum Speichern alle Konten in einer Bank!
+    // Zum Speichern alle Konten für eine Bank!
     private Account[] account;
 
     private boolean locked;
