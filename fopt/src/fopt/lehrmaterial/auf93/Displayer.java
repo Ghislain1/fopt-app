@@ -4,13 +4,19 @@ import java.util.concurrent.Semaphore;
 
 public class Displayer extends Thread
 {
-    Semaphore[] semaphoreArray;
+    private Semaphore semaphoreEine;
 
-    public Displayer(Semaphore[] semaphoreArray)
+    private Semaphore semaphoreAndere;
+
+    public Displayer(Semaphore semaphoreEine, Semaphore semaphoreAndere)
     {
         super();
-
-        this.semaphoreArray = semaphoreArray;
+        if (semaphoreAndere == null || semaphoreAndere == null)
+        {
+            throw new NullPointerException("Semaphore could NOT be Null!!");
+        }
+        this.semaphoreEine = semaphoreEine;
+        this.semaphoreAndere = semaphoreAndere;
         this.start();
 
     }
@@ -28,13 +34,18 @@ public class Displayer extends Thread
 
             try
             {
-                this.semaphoreArray[0].acquire();
+                // 1. Der Initialwert wird auf 0 gesetzt bzw.
+                // aufrufendende Thread warten
+                this.semaphoreEine.acquire();
+
+                // Meldung auf die Console schreiben
                 this.say();
 
                 sleep((int) (Math.random() * 1000)); // Nur zu verlangsamen der
                                                      // Aufgabe
-
-                this.semaphoreArray[1].release();
+                // einer der DisplayOther freigeben
+                // Alternierende zu simulieren
+                this.semaphoreAndere.release();
 
             }
             catch (InterruptedException e)
