@@ -1,4 +1,9 @@
-[![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/GhislainOne/fopt)
+
+<p align="center">
+     <a href="https://app.circleci.com/pipelines/github/Ghislain1/fopt-app?branch=master" title="Build Status"><img src="https://circleci.com/gh/circleci/circleci-docs/tree/teesloane-patch-5.svg?style=svg"></a>
+</p>
+
+
 # fopt-app
 Übungen in Fortgeschrittene Programmiertechniken (FOPT) mit Java
 
