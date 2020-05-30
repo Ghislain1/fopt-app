@@ -7,7 +7,7 @@
 1. Workspace folder erstellen
 2. Clone the Repository 
 3. Start your IDE and Import the project as following
-    - Import click
+    - File --> Import click
     - **General** --> **Project from Folder or Archive** --> Select "Fopt-app" Folder    
 ## Package structure in src folder
 - **fopt.buch**: Übungsaufgaben,Listing, Abschnitte und Beispiele aus dem Buch
