@@ -21,14 +21,10 @@ jobs:
       - run:
           name: command1
           command: |
-          echo 'Ghis tries to use a command'
-          echo 'Command 1 runs sucessfully'
+            echo 'Ghis tries to use a command'
+            echo 'Command 1 runs sucessfully'
       - run:
-        name: command2
-        command: |
-        ls -al
-        echo 'Commad2 ends!!...'
-    
-     
-
-
+          name: command2
+          command: |
+            ls -al
+            echo 'Commad2 ends!!...'
