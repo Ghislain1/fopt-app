@@ -4,11 +4,11 @@
 
 # Howtos
 ##  Coding
-1. fopt-app should be used as workspace 
-2. Fork projects
-3. Clone the project
-4. Pull resquest
-5. Discussions
+1. Workspace folder erstellen
+2. Clone the Repository 
+3. Start your IDE and Import the project as following
+    - Import click
+    - **General** --> **Project from Folder or Archive** --> Select "Fopt-app" Folder    
 ## Package structure in src folder
 - **fopt.buch**: Übungsaufgaben,Listing, Abschnitte und Beispiele aus dem Buch
 - **fopt.lehrmaterial**: Aufgaben aus der Lehrmaterial 
