@@ -12,7 +12,7 @@ public class Loop1 extends Thread
 
     public Loop1(String name)
     {
-	myName = name;
+	this.myName = name;
     }
 
     @Override
@@ -20,7 +20,7 @@ public class Loop1 extends Thread
     {
 	for (int i = 1; i <= 100; i++)
 	{
-	    System.out.println(myName + " (" + i + ")");
+	    System.out.println(this.myName + " (" + i + ")");
 	}
     }
 
