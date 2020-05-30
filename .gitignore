@@ -1,64 +1,44 @@
-### /.gitignore-boilerplates/Global/Eclipse.gitignore
-*.pydevproject
-.metadata
-bin/
-tmp/**
-tmp/**/*
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.loadpath
-*.log
-org.eclipse.paho.client.mqttv3.test/TakeOverClient-*
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+.idea_modules/
 
-# External tool builders
-.externalToolBuilders/
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/nbdist/
 
-# Locally stored "Eclipse launch configurations"
-*.launch
+### VS Code ###
+.vscode/
 
-# CDT-specific
-.cproject
-
-# PDT-specific
-.buildpath
-
-### .gitignore-boilerplates/Global/OSX.gitignore
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-
-# Thumbnails
-._*
-
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
-
-### .gitignore-boilerplates/Java.gitignore
+# Compiled class file
 *.class
+
+# Log file
+*.log
 
 # Package Files #
 *.jar
 *.war
+*.nar
 *.ear
+*.zip
+*.tar.gz
+*.rar
 
-# Eclipse
-.classpath
-.project
-.settings/
-
-# Intellij
-.idea/
-*.iml
-*.iws
-
-# Maven
-log/
+# Project specifics
 target/
 
+.DS_Store
 
-*.log.*
+out/
+
+.settings
+.project
+.classpath
+.factorypath
+
+pom.xml.versionsBackup
+**/.flattened-pom.xml
