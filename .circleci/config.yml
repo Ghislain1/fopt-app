@@ -31,11 +31,11 @@ jobs:
       - run:
           name: Compile all Java classes
           command: |
-            java -cp classes src/main/fopt
+            javac -verbose src/main/*.java -d classes
       - run:
           name: Compile all Tests classes
           command: |
-            java -cp classes src/test/fopt
+            javac src/test/*.java
 
   test:
     docker:
