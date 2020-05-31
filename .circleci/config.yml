@@ -28,6 +28,15 @@ jobs:
           command: |
             ls -al
             echo 'Commad2 ends!!...'
+      - run:
+          name: Compile all Java classes
+          command: |
+            java -cp classes src/main/fopt
+      - run:
+          name: Compile all Tests classes
+          command: |
+            java -cp classes src/test/fopt
+
   test:
     docker:
       - image: circleci/openjdk:11.0.3-jdk-stretch
