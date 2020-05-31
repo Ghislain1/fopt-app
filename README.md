@@ -1,6 +1,7 @@
 
 <p align="center">
-     <a href="https://circleci.com/gh/Ghislain1/workflows/fopt-app" title="Build Status"><img src="https://circleci.com/gh/circleci/circleci-docs/tree/teesloane-patch-5.svg?style=shield&circle-token=3f33dc69061bec9eed0c430fccb9630c9ed3efec"></a>
+     <a href="https://circleci.com/gh/Ghislain1/fopt-app" title="Build Status"><img src="https://circleci.com/gh/Ghislain1/fopt-app.svg?style=shield&circle-token=3f33dc69061bec9eed0c430fccb9630c9ed3efec">
+     </a>
 </p>
 
 
