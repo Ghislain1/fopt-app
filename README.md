@@ -1,6 +1,6 @@
 
 <p align="center">
-     <a href="https://circleci.com/gh/Ghislain1/fopt-app" title="Build Status"><img src="https://circleci.com/gh/Ghislain1/fopt-app.svg?style=shield&circle-token=3f33dc69061bec9eed0c430fccb9630c9ed3efec">
+     <a href="https://circleci.com/gh/Ghislain1/workflows/fopt-app/tree/master" title="Build Status"><img src="https://circleci.com/gh/Ghislain1/fopt-app.svg?style=shield&circle-token=3f33dc69061bec9eed0c430fccb9630c9ed3efec">
      </a>
 </p>
 
