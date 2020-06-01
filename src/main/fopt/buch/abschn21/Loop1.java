@@ -8,7 +8,7 @@ public class Loop1 extends Thread
 {
 
     // Name der jeweils Thread zu speichern.
-    private String myName1;
+    private String myName;
 
     public Loop1(String name)
     {
