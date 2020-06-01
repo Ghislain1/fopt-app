@@ -1,0 +1,16 @@
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\main\module-info.java
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\main\fopt\buch\abschn2\Account.java
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\main\fopt\buch\abschn2\Bank.java
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\main\fopt\buch\abschn2\Banking.java
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\main\fopt\buch\abschn2\Clerk.java
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\main\fopt\buch\abschn21\Loop1.java
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\main\fopt\buch\abschn621\Counter.java
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\main\fopt\buch\abschn621\CounterImpl.java
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\main\fopt\buch\abschn621\RMIClient.java
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\main\fopt\buch\abschn621\RMIServer.java
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\main\fopt\lehrmaterial\auf93\Displayer.java
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\main\fopt\lehrmaterial\auf93\DisplayerOther.java
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\main\fopt\lehrmaterial\auf93\Displaying.java
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\test\fopt\buch\abschn2\test\BankTest.java
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\test\fopt\buch\abschn2\test\ClerkTest.java
+C:\Users\Zoe\Desktop\Master\FOPT\GIT\fopt-app\src\test\fopt\lehrmaterial\auf93\DisplayerTest.java
