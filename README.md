@@ -39,3 +39,4 @@
 * [Online-Tutorien](https://olat.vcrp.de/auth/RepositoryEntry/2535325809/CourseNode/94291001914984)
 * [Alte Klausure](https://drive.google.com/drive/folders/0B9ZkMECasmz5WlJSQ194Q0FwTG8)
 * [JUnit on Eclipse](https://www.eclipse.org/community/eclipse_newsletter/2017/october/article5.php)
+* [Eclipse-IDE Improvements](https://www.youtube.com/watch?v=U-ZTkhek5TU&feature=youtu.be&t=2m32s) -- Video
