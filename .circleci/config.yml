@@ -24,18 +24,13 @@ jobs:
             echo 'Ghis tries to use a command'
             echo 'Command 1 runs sucessfully'
       - run:
-          name: command2
+          name: Compile all Java class Files
           command: |
-            ls -al
-            echo 'Commad2 ends!!...'
-      - run:
-          name: Compile all Java classes
-          command: |
-            javac -verbose src/main/*.java -d classes
+            javac -verbose -d bin src/main/*.java
       - run:
           name: Compile all Tests classes
           command: |
-            javac src/test/*.java
+            javac -verbose -d binTest src/test/*.java
 
   test:
     docker:
