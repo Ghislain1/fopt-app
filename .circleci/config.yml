@@ -26,8 +26,8 @@ jobs:
       - run:
           name: Compile all Java class Files
           command: |
-            $ find -name "*.java" > sources.txt
-            $ javac -verbose -d bin @sources.txt
+            find -name "*.java" > sources.txt
+            javac -verbose -d bin @sources.txt
       - run:
           name: Compile all Tests classes
           command: |
