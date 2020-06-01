@@ -19,7 +19,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: command1
+          name: Ghis Command First Sample
           command: |
             echo 'Ghis tries to use a command'
             echo 'Command 1 runs sucessfully'
@@ -29,11 +29,6 @@ jobs:
             cd src/main
             find -name "*.java" > sources.txt
             javac -verbose -d bin @sources.txt
-      - run:
-          name: Compile all Tests classes
-          command: |
-            javac -verbose -d binTest src/test/*.java
-
   test:
     docker:
       - image: circleci/openjdk:11.0.3-jdk-stretch
@@ -42,7 +37,7 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: A Command inside Test just for Fun
+          name: A Command to run a test
           command: |
             echo "Ghislain"
             ls 
