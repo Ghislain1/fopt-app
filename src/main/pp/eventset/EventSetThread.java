@@ -2,10 +2,14 @@ package pp.eventset;
 
 public class EventSetThread extends Thread
 {
-    public EventSet eventSet;
+    private EventSet eventSet;
 
     public EventSetThread(EventSet eventSet)
     {
+        if (eventSet == null)
+        {
+            throw new IllegalArgumentException("eventSet must be not null");
+        }
         this.eventSet = eventSet;
         this.start();
     }
@@ -13,21 +17,35 @@ public class EventSetThread extends Thread
     @Override
     public void run()
     {
-        for (int i = 0; i < 100; i++)
+        try
         {
+            Thread.sleep(1000 * 5);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+        this.setAtLeastOneTrue();
+    }
 
-            this.eventSet.set(true);
-
-            try
-            {
-                Thread.sleep(1000 * 5);
-            }
-            catch (InterruptedException e)
-            {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+    private void setAtLeastOneTrue()
+    {
+        this.eventSet.set(0, false);
+        for (int i = 1; i < 5; i++)
+        {
+            this.eventSet.set(i, true);
 
         }
+
+    }
+
+    private void setAllTrue()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            this.eventSet.set(i, true);
+
+        }
+
     }
 }

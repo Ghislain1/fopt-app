@@ -1,7 +1,5 @@
 package pp.eventset;
 
-import java.util.Random;
-
 public class EventSet
 {
     private boolean[] feld;
@@ -15,13 +13,17 @@ public class EventSet
         this.feld = new boolean[feldLength];
     }
 
-    public void set(boolean feldValue)
+    public synchronized void set(int position, boolean feldValue)
     {
-        Random random = new Random();
-        int max = this.feld.length - 1;
-        int min = 0;
-        int randomNumber = random.nextInt(max + 1 - min) + min;
-        this.feld[randomNumber] = feldValue;
+        if (position < 0 || position >= this.feld.length)
+        {
+            throw new IllegalArgumentException("Position must be in feld range [0," + this.feld.length + "]");
+        }
+
+        this.feld[position] = feldValue;
+        System.out.println("Feldelement is set  at: " + position + "--> " + feldValue);
+        this.notifyAll();
+
     }
 
     public synchronized void waitAND()
@@ -34,10 +36,13 @@ public class EventSet
             }
             catch (InterruptedException e)
             {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
+        // Warum nicht Notify?
+        // 1.
+        this.notifyAll();
+
     }
 
     public synchronized void waitOR()
@@ -54,6 +59,7 @@ public class EventSet
                 e.printStackTrace();
             }
         }
+        this.notifyAll();
     }
 
     private boolean checkIfAtLeastOneTrue()
@@ -74,7 +80,7 @@ public class EventSet
     {
         for (int i = 0; i < feld.length; i++)
         {
-            if (feld[i])
+            if (!feld[i])
             {
                 return false;
             }
