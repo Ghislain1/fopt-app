@@ -9,6 +9,9 @@ module fopt
      */
 
     // Exports von Packages von fopt-app
-    // exports fopt.buch.abschn2;
-    // exports fopt.buch.abschn621;
+    exports pp.eventset;
+
+    exports fopt.buch.abschn2;
+
+    exports fopt.buch.abschn621;
 }
