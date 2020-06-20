@@ -5,7 +5,6 @@ public class EventSetExecutor
 
     public static void main(String[] args)
     {
-        // System.out.println("Start App !!!");
         EventSet eventSet = new EventSet(5);
 
         // new EventSetThread(eventSet);
