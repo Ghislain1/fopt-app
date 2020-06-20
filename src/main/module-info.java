@@ -20,4 +20,6 @@ module fopt
     exports fopt.buch.abschn421;
 
     exports fopt.buch.abschn621;
+
+    exports fopt.buch.absch441;
 }
