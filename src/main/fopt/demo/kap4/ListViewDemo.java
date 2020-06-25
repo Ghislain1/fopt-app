@@ -33,7 +33,7 @@ public class ListViewDemo extends Application
         // Listview anordnen
         hbox.getChildren().add(listview);
 
-        // Adapter
+        // Callback - Handler
         listview.setCellFactory(param -> new ListCell<Person>()
         {
             @Override
@@ -43,7 +43,7 @@ public class ListViewDemo extends Application
 
                 if (empty || item == null || item.getName() == null)
                 {
-                    setText(null);
+                    return;
                 }
                 else
                 {

@@ -9,16 +9,15 @@ public class VokabelTrainingApp extends Application
     public static void main(String[] args)
     {
         launch(args);
-
     }
 
     @Override
     public void start(Stage stage)
     {
-
+        View view = new View();
         Model model = new Model();
-        Presenter presenter = new Presenter(model);
-        View view = new View(presenter);
+
+        view.setPresenter(new Presenter(view, model));
         view.init(stage);
 
     }
