@@ -50,7 +50,7 @@ public class View
         // instanzieren)
 
         // All Labels in GUI
-        this.ueberLabel = new Label("Übersetzen Sie :");
+        this.ueberLabel = new Label("Uebersetzen Sie :");
         this.wortLabel = new Label(this.presenter.getText());
 
         this.statusLabel = new Label("-");
@@ -60,7 +60,7 @@ public class View
 
         // All Buttons in GUI
         this.weiterButton = new Button("Weiter");
-        this.ueberpruefungButton = new Button("Überprüfen");
+        this.ueberpruefungButton = new Button("Ueberpruefen");
 
         this.ueberpruefungButton.setOnAction(s ->
         {

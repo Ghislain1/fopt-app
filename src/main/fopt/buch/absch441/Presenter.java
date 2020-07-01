@@ -37,7 +37,7 @@ public class Presenter
         }
         else
         {
-            this.view.setStatusInfo("Die Lösung war zum " + howMuch + " Mal Falsch");
+            this.view.setStatusInfo("Die Loesung war zum " + howMuch + " Mal Falsch");
         }
 
         return isOkay;
