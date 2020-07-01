@@ -18,8 +18,8 @@ jobs:
         # specify the version you desire here syntax: circleci/openjdk:<tag> Siehe hub.docker webseite
       - image: circleci/openjdk:stretch
     steps:
-      - checkout
-      - run:
+     - checkout
+     - run:
           name: Display version of JRE (java --version)
           command: |
             echo 'Just a test'
