@@ -23,8 +23,8 @@ jobs:
           name: Install openjfx(JAVAFX)
           command: sudo apt-get update  --fix-missing && sudo apt-get install openjfx -y -V
       - run:
-          name: Display Current Directory(pwd command of linux)
-          command: pwd && ls
+          name: Display Current Directory AND list contents(pwd, find command of linux)
+          command: pwd && find .
       - run:
           name: Display version of JRE (java --version)
           command: |
