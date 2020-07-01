@@ -20,6 +20,16 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Display version of JRE (java --version)
+          command: |
+            echo 'Just a test'
+            java --version
+     - run:
+          name: Display version of JDK (javac --version)
+          command: |
+            echo 'Just a test'
+            javac --version 
+      - run:
           name: Ghis Command First Sample
           command: |
             echo 'Ghis tries to use a command'
@@ -29,7 +39,7 @@ jobs:
           command: |
             cd src/main
             find -name "*.java" > sources.txt
-            javac -verbose -d bin @sources.txt
+            javac -verbose -d bin @sources.txt 
       - run:
           name: Ghis1
           command: |
