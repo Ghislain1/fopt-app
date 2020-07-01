@@ -21,7 +21,7 @@ jobs:
       - checkout
       - run:
           name: Install openjfx(JAVAFX)
-          command: sudo apt-get update  --fix-missing && apt-get install openjfx -y -V
+          command: sudo apt-get update  --fix-missing && sudo apt-get install openjfx -y -V
       - run:
           name: Display version of JRE (java --version)
           command: |
