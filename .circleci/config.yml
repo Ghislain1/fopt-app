@@ -16,7 +16,7 @@ jobs:
   build:
     docker:
         # specify the version you desire here syntax: circleci/openjdk:<tag> Siehe hub.docker webseite
-      - image: circleci/openjdk:11.0.3-jdk-stretch 
+      - image: circleci/openjdk:14-ea-25-buster-node-browsers-legacy 
     steps:
       - checkout
       - run:
