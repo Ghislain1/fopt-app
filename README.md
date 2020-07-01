@@ -6,10 +6,7 @@
 
 
 # fopt-app
-Übungen in Fortgeschrittene Programmiertechniken (FOPT) mit Java
-
-
-
+Übungen, Alte Prüfungen in Fortgeschrittene Programmiertechniken (FOPT) mit Java.
 # Howtos
 ##  Coding
 1. Workspace folder erstellen
@@ -21,18 +18,8 @@
 - **fopt.buch**: Übungsaufgaben,Listing, Abschnitte und Beispiele aus dem Buch
 - **fopt.lehrmaterial**: Aufgaben aus der Lehrmaterial 
 - **fopt.asb**: beinhalt alle asb selbstgemachte ASB-Aufgaben, ASB-Zusatzaufgaben,  ASB-Pflichtaufgaben
-- **fopt.klausure**: sind alle Klausuren
-
-## FOPT-Buch  Abschnitte
-
-
-## FOPT-Buch Übungsaufgaben
-
-## FOPT- Alte Klausure
-
-## FOPT- ASB-Aufgaben
-
-## FOPT- andere Übungsaufgaben
+- **fopt.klausur**: sind alle Klausuren. Hier können alle Lösungsansätze gepackt werden
+     - e.g. fopt.klausur.ws2013 
 
 # Links
 * [ASB-Zusatzaufgaben](https://olat.vcrp.de/auth/RepositoryEntry/2535325809/CourseNode/92787204650784)
