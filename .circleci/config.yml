@@ -30,12 +30,12 @@ jobs:
             cd src/main
             find -name "*.java" > sources.txt
             javac -verbose -d bin @sources.txt
-       - run:
+      - run:
           name: Ghis1
           command: |
             echo ' | to make new multiline  using command expression'
             echo 'Just a test'
-        - run:
+      - run:
           name: Ghis2
           command: |
             echo 'Can you explain how this works'
