@@ -31,7 +31,6 @@ jobs:
       - run:
           name: Display version of JRE (java --version)
           command: |
-            echo 'Just a test'
             java --version
       - run:
           name: Display version of JDK (javac --version)
@@ -48,7 +47,7 @@ jobs:
           command: |
             cd src/main
             find -name "*.java" > sources.txt
-            javac -verbose -d bin @sources.txt 
+            javac --module-path /ect/apt/javafx-sdk-14/lib --add-modules javafx.graphics,javafx.base -verbose -d bin @sources.txt 
       - run:
           name: Ghis1
           command: |
