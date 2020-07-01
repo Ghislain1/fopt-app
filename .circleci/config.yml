@@ -15,6 +15,7 @@ version: 2.1
 jobs:
   build:
     docker:
+        # specify the version you desire here syntax: circleci/openjdk:<tag> Siehe hub.docker webseite
       - image: circleci/openjdk:stretch
     steps:
       - checkout
@@ -29,6 +30,16 @@ jobs:
             cd src/main
             find -name "*.java" > sources.txt
             javac -verbose -d bin @sources.txt
+       - run:
+          name: Ghis1
+          command: |
+            echo ' | to make new multiline  using command expression'
+            echo 'Just a test'
+        - run:
+          name: Ghis2
+          command: |
+            echo 'Can you explain how this works'
+            echo 'With - is complex object , witout is attribut or properties'
   test:
     docker:
       - image: circleci/openjdk:11.0.3-jdk-stretch
