@@ -26,8 +26,8 @@ jobs:
           name: Display Current Directory AND list contents(pwd, find command of linux)
           command: pwd && find .
       - run:
-         name: Changed Directory to installpackage Directory(/etc/apt/sources.list)
-         command: cat /etc/apt/sources.list
+         name: List the javafx library location (Strange commands: dpkg-query)
+         command: dpkg-query -L openjfx
       - run:
           name: Display version of JRE (java --version)
           command: |
@@ -47,7 +47,7 @@ jobs:
           command: |
             cd src/main
             find -name "*.java" > sources.txt
-            javac --module-path /ect/apt/javafx-sdk-14/lib --add-modules javafx.graphics,javafx.base -verbose -d bin @sources.txt 
+            javac --module-path /usr/share/openjfx/lib --add-modules javafx.graphics,javafx.base -verbose -d bin @sources.txt 
       - run:
           name: Ghis1
           command: |
