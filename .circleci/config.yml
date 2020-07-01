@@ -26,7 +26,7 @@ jobs:
           name: Display Current Directory AND list contents(pwd, find command of linux)
           command: pwd && find .
       - run:
-         name: List the javafx library location (Strange commands: dpkg-query)
+         name: List the javafx library location (Strange commands dpkg-query)
          command: dpkg-query -L openjfx
       - run:
           name: Display version of JRE (java --version)
