@@ -27,7 +27,7 @@ jobs:
       - run:
           name: Display version of JDK (javac --version)
           command: |
-            echo 'Just a test'
+            echo 'Check unterschied für JRE und JDK version'
             javac --version 
       - run:
           name: Ghis Command First Sample
