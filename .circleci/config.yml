@@ -26,6 +26,9 @@ jobs:
           name: Display Current Directory AND list contents(pwd, find command of linux)
           command: pwd && find .
       - run:
+         name: Changed Directory to installpackage Directory(/etc/apt/sources.list)
+         command: cat /etc/apt/sources.list
+      - run:
           name: Display version of JRE (java --version)
           command: |
             echo 'Just a test'
