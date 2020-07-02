@@ -22,7 +22,7 @@ public class Zahlenschloss
 
         try
         {
-            Thread.sleep(100);
+            Thread.sleep(10);
         }
         catch (InterruptedException e)
         {
@@ -51,9 +51,10 @@ public class Zahlenschloss
 
     public synchronized void warten()
     {
-        boolean istOkay = this.istGeoeffnet();
+        boolean janein = this.istGeoeffnet();
 
-        while (!istOkay)
+        // Check Wartebediengung -->Falls der Schloss sich öffnet
+        while (!janein)
         {
             try
             {
@@ -70,8 +71,8 @@ public class Zahlenschloss
     {
         int result = this.zahlenschloss[radnummer];
 
-        // Thread aufwecken
-        this.notify();
+        // Siehe Abschnitt 2.6.2
+        this.notifyAll();
         return result;
     }
 
