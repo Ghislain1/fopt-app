@@ -78,7 +78,7 @@ public class Zahlenschloss
 
     // Kein synchronized weil der Zustandwert geheim wird nur gelesen in dieser
     // Klasse
-    public int anzahlRädchen()
+    public int anzahlRaedchen()
     {
         return this.geheim.length;
     }

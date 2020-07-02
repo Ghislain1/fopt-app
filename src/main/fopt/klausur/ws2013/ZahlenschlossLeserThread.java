@@ -14,15 +14,14 @@ public class ZahlenschlossLeserThread extends Thread
     @Override
     public void run()
     {
-        int leng = this.zahlenschloss.anzahlRädchen();
 
         while (!interrupted())
         {
 
-            for (int radnummer = 0; radnummer < leng; radnummer++)
+            for (int i = 0; i < this.zahlenschloss.anzahlRaedchen(); i++)
             {
 
-                System.out.print(" " + this.zahlenschloss.lesen(radnummer));
+                System.out.print(" " + this.zahlenschloss.lesen(i));
             }
             System.out.println();
         }

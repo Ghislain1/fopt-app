@@ -13,7 +13,7 @@ public class ZahlenschlossThread extends Thread
         this.zahlenschloss = zahlenschloss;
         this.setName(threadName);
         this.start();
-        System.out.println(Thread.currentThread().getName() + " is starting!!");
+        System.out.println(threadName + " is starting!!");
 
     }
 
@@ -21,8 +21,9 @@ public class ZahlenschlossThread extends Thread
     public void run()
     {
 
-        int leng = this.zahlenschloss.anzahlRädchen();
+        // int leng = this.zahlenschloss.anzahlRaedchen();
 
+        // Zahlen zwischen 0 und 9 erzeugen
         int zahl = (int) (this.random.nextDouble() * 10);
 
         int radnummer = 0;

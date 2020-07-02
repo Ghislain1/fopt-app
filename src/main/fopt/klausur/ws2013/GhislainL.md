@@ -4,7 +4,9 @@
 
 	 - Wir können diese Frage an verschiedenen Threads stellen: Warum sollst du warten?
 	 - Ähnlich Bespiel wurde in Online Tutorium  behandeln!! 
-* c) Durch Veränderung des Zustands des Objektes Zahlenschloss können mehrere Threads Ihres While-Wait-Schleife verlassen
+	 
+* c) Durch Veränderung des Zustands des Objektes Zahlenschloss können mehrere Threads Ihres While-Wait-Schleife verlassen. Folglich muss man NotifyAll() verwenden.
+* d) s Aufgabe a
 
 # Aufgabe 2
 # Aufgabe 3

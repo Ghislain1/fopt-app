@@ -10,12 +10,14 @@ public class ZahlenschlossDemo
         System.out.print("Gib  'stop' ein, um der Prozess zu stoppen : ");
         Zahlenschloss zahlenschloss = new Zahlenschloss(new int[5]);
 
-        for (int i = 1; i <= 5; i++)
+        // Leser anlegen
+        Thread leserThread = new ZahlenschlossLeserThread(zahlenschloss);
+
+        // Mehrere Threads für die Zahlenkombination
+        for (int i = 1; i <= 125; i++)
         {
             new ZahlenschlossThread(zahlenschloss, "Thread Nr. " + i);
         }
-
-        Thread leserThread = new ZahlenschlossLeserThread(zahlenschloss);
 
         Scanner scanner = new Scanner(System.in);
         String line = scanner.nextLine();
