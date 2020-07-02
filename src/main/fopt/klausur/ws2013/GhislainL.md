@@ -1,4 +1,10 @@
 # Aufgabe 1
+* a) Implementierung Siehe Klasse Zahlenschloss.java
+* b) Wir haben Nur eine Wartebediengugen: Die Zahlenkombination bei der sich das Schloss öffnet.
+
+	 - Wir können diese Frage an verschiedenen Threads stellen: Warum sollst du warten?
+	 - Ähnlich Bespiel wurde in Online Tutorium  behandeln!! 
+
 # Aufgabe 2
 # Aufgabe 3
 # Aufgabe 4 (RMI)
