@@ -6,14 +6,14 @@
 
 
 # fopt-app
-Übungen, Alte Prüfungen in Fortgeschrittene Programmiertechniken (FOPT) mit Java.
+## Intro
+Übungen, **Alte Prüfungen** in Fortgeschrittene Programmiertechniken (FOPT) mit Java.
+Das Hauptziel ist alte Klausuren zusammen zu lösen mit ausführlichen Kommentaren auf  jeweils Fragen
 # Howtos
 ##  Coding
-1. Workspace folder erstellen
-2. Clone the Repository 
-3. Start your IDE and Import the project as following
-    - File --> Import click
-    - **General** --> **Project from Folder or Archive** --> Select "Fopt-app" Folder    
+1. Clone the Repository 
+1. Start your IDE and Import the project as git project
+1. Create your package e.g. fopt.klauser.<your firstname>.<period> e.g. fopt.klausur.ghis.ws2013
 ## Package structure in src folder
 - **fopt.buch**: Übungsaufgaben,Listing, Abschnitte und Beispiele aus dem Buch
 - **fopt.lehrmaterial**: Aufgaben aus der Lehrmaterial 
