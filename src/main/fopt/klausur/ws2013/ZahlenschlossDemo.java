@@ -13,7 +13,7 @@ public class ZahlenschlossDemo
         // Leser anlegen
         Thread leserThread = new ZahlenschlossLeserThread(zahlenschloss);
 
-        // Mehrere Threads für die Zahlenkombination
+        // Mehrere Threads fuer die Zahlenkombination
         for (int i = 1; i <= 125; i++)
         {
             new ZahlenschlossThread(zahlenschloss, "Thread Nr. " + i);

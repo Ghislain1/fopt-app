@@ -53,7 +53,7 @@ public class Zahlenschloss
     {
         boolean janein = this.istGeoeffnet();
 
-        // Check Wartebediengung -->Falls der Schloss sich öffnet
+        // Check Wartebediengung -->Falls der Schloss sich oeffnet
         while (!janein)
         {
             try
@@ -71,7 +71,7 @@ public class Zahlenschloss
     {
         int result = this.zahlenschloss[radnummer];
 
-        // Siehe Abschnitt 2.6.2
+        // Siehe Abschnitt 2.6.2 Buch
         this.notifyAll();
         return result;
     }

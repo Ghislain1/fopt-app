@@ -5,7 +5,7 @@ import java.util.concurrent.Semaphore;
 public class Displaying
 {
     // Lesen Sie noch Abschnitt 3.1.3
-    // Semaphore für gegenseitiger Ausschluss --NEIN
+    // Semaphore fuer gegenseitiger Ausschluss --NEIN
     public static void main(String[] args)
     {
         // Warum Semaphore mit Init wert 0?
