@@ -14,6 +14,7 @@ Das Hauptziel ist alte Klausuren zusammen zu lösen mit ausführlichen Kommentar
 1. Clone the Repository 
 1. Start your IDE and Import the project as git project
 1. Create your package as follows fopt.klausur.your firstname.period e.g. fopt.klausur.ghis.ws2013
+1. Export your package in module-info.java file e.g. exports fopt.klausur.ghis.ws2013;
 1. Commit your change with suitable comments
 1. Push it 
 1. That's all!!
