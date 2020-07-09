@@ -29,4 +29,6 @@ module fopt
 
     exports fopt.buch.abschn413;
 
+    exports fopt.buch.abschn452;
+
 }
