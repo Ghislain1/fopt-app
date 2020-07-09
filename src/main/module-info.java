@@ -6,6 +6,7 @@ module fopt
     requires transitive javafx.graphics;
 
     requires javafx.controls;
+
     requires javafx.base;
 
     /*
@@ -25,5 +26,7 @@ module fopt
     exports fopt.buch.abschn621;
 
     exports fopt.buch.absch441;
+
+    exports fopt.buch.abschn413;
 
 }
