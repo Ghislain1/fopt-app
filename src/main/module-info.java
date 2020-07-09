@@ -31,4 +31,6 @@ module fopt
 
     exports fopt.buch.abschn452;
 
+    exports pp.filelocking;
+
 }

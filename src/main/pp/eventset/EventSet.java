@@ -39,8 +39,8 @@ public class EventSet
                 e.printStackTrace();
             }
         }
-        // Warum nicht Notify?
-        // 1.
+        // 1. Warum nicht Notify?
+        //
         this.notifyAll();
 
     }
