@@ -16,7 +16,6 @@ public class FileDemo
         }
         catch (InterruptedException e)
         {
-
             e.printStackTrace();
         }
         System.out.println("Alle Threads sind abgeschlossen");

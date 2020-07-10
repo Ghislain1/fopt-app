@@ -33,4 +33,6 @@ module fopt
 
     exports pp.filelocking;
 
+    exports gui.graphics.sinus;
+
 }
