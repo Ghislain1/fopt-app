@@ -17,11 +17,10 @@ public class Main extends Application
     {
         // JavaFx Elements
         SinusModel sinusModel = new SinusModel();
+        SinusPresenter sinusPresenter = new SinusPresenter();
 
-        SinusView sinusView = new SinusView();
-
-        SinusPresenter sinusPresenter = new SinusPresenter(sinusView, sinusModel);
-        sinusView.setPresenter(sinusPresenter);
+        SinusView sinusView = new SinusView(sinusPresenter);
+        sinusPresenter.setModelAndView(sinusView, sinusModel);
 
         primaryStage.setScene(sinusView.getUi());
         primaryStage.setTitle("Sinus");
