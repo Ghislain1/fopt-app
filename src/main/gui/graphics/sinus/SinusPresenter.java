@@ -21,8 +21,7 @@ public class SinusPresenter
 
     public void onAmplitudeChanged(ObservableValue<? extends Number> s, Number newValue, Number oldValue)
     {
-        System.out.println(newValue + "  Zoom Aplite " + oldValue);
-        this.sinusView.updateAmplitude(Double.valueOf(newValue + ""));
+        this.sinusView.updateFunction(newValue.doubleValue(), sinusModel.getFrequency(), sinusModel.getPhase(), sinusModel.getZoom());
 
     }
 

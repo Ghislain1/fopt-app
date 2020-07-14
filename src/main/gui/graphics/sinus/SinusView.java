@@ -1,5 +1,8 @@
 package gui.graphics.sinus;
 
+import java.text.DecimalFormat;
+
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -9,10 +12,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polyline;
+import javafx.scene.text.Font;
 
 // 1. Wie instanziert man ein ObservableList<Double>  object?
 // 2. View-Teil hat immer 2 method? welhe  initUi() und 
-// 3. View hat immer Paramterüberagbe in Constructor?
+// 3. View hat immer Paramterueberagbe in Constructor?
 
 public class SinusView
 {
@@ -20,13 +24,23 @@ public class SinusView
 
     private Slider frequencySlider;
 
+    private static DecimalFormat df = new DecimalFormat("0.00");
+
     private Slider phaseSlider;
+
+    private Pane graphPane;
+
+    private Label labelFunction;
 
     Polyline polyline;
 
     private Slider zoomSlider;
 
     private Scene scene;
+
+    private Double x0 = 900D;
+
+    private Double y0 = 500D;
 
     private SinusPresenter sinusPresenter;
 
@@ -41,37 +55,41 @@ public class SinusView
         return this.scene;
     }
 
-    public void updateAmplitude(Double amplitude)
+    public void updateFunction(Double amplitude, Double frequency, Double phase, Double zoom)
     {
         Double[] points = new Double[100 * 2];
         for (int i = 0; i < 100 * 2; i = i + 2)
         {
-            points[i] = i * 1d;
-            points[i + 1] = amplitude * Math.sin(8.83 * i + 46.4);
+            points[i] = x0 - i * 1D;
+            points[i + 1] = y0 - (amplitude * Math.sin(8.83 * i + 46.4) * 1D);
 
+            System.out.println("(" + points[i] + " , " + points[i + 1] + ")");
         }
-        this.polyline = new Polyline();
+
+        this.polyline.getPoints().clear();
         this.polyline.getPoints().addAll(points);
         this.polyline.setStroke(Color.BLACK);
         this.polyline.setStrokeWidth(1);
+
+        this.labelFunction.setText(df.format(amplitude) + "* sin(" + df.format(2 * Math.PI * frequency) + "*x +" + df.format(phase) + ")");
+
     }
 
     private void initUi()
     {
-        // amplitude, frequency, phase und zoom besitzen.
-
         // JavaFx Elemente: wir haben in GUI 6 Haupt-Elemente
-        Label labelFunction = new Label("11* sin(123*x +100)");
-        Pane graph = new Pane();
-
-        // test
-        this.updateAmplitude(3.456);
-
-        graph.getChildren().add(this.polyline);
+        this.labelFunction = new Label();
+        this.polyline = new Polyline();
+        Polyline xPolyline = new Polyline(x0 / 2, 0, x0 / 2, y0);
+        Polyline yPolyline = new Polyline(0, y0 / 2, x0, y0 / 2);
         this.amplitudeSlider = new Slider(-6, 6, 1);
         this.phaseSlider = new Slider();
         this.frequencySlider = new Slider();
         this.zoomSlider = new Slider();
+        Label amplitudeLabel = new Label("Amplitude:");
+        Label phaseLabel = new Label("Phase:");
+        Label frequencyLabel = new Label("Frequency:");
+        Label zoomLabel = new Label("Zoom:");
 
         // Set ids
         this.amplitudeSlider.setId("amplitude");
@@ -79,46 +97,59 @@ public class SinusView
         this.phaseSlider.setId("phase");
         this.zoomSlider.setId("zoom");
 
+        // Set Font Size
+        Font fontSize = Font.font(20);
+        labelFunction.setFont(fontSize);
+        amplitudeLabel.setFont(fontSize);
+        phaseLabel.setFont(fontSize);
+        frequencyLabel.setFont(fontSize);
+        zoomLabel.setFont(fontSize);
+
         // Set Properties
         this.amplitudeSlider.setShowTickMarks(true); // TicMarks anzuzeigen in
         this.amplitudeSlider.setMajorTickUnit(1);
         this.amplitudeSlider.setShowTickLabels(true);
+        this.amplitudeSlider.setSnapToTicks(true);
 
-        // arrange element
-        VBox vbox = new VBox();
+        // Containers definition
+        BorderPane root = new BorderPane();
+        this.graphPane = new Pane();
+        VBox sinParamterVBox = new VBox();
         HBox amplitudeHBox = new HBox();
-        amplitudeHBox.getChildren().add(new Label("Amplitude"));
-        amplitudeHBox.getChildren().add(this.amplitudeSlider);
-
         HBox frequencyHBox = new HBox();
-        frequencyHBox.getChildren().add(new Label("Frequency"));
-        frequencyHBox.getChildren().add(this.frequencySlider);
-
         HBox phaseHBox = new HBox();
-        phaseHBox.getChildren().add(new Label("Phase"));
-        phaseHBox.getChildren().add(this.phaseSlider);
-
         HBox zoomHBox = new HBox();
-        zoomHBox.getChildren().add(new Label("Zoom"));
+
+        // Arrange Elements in Containers
+        graphPane.getChildren().add(this.polyline);
+        graphPane.getChildren().add(xPolyline);
+        graphPane.getChildren().add(yPolyline);
+
+        amplitudeHBox.getChildren().add(amplitudeLabel);
+        amplitudeHBox.getChildren().add(this.amplitudeSlider);
+        frequencyHBox.getChildren().add(frequencyLabel);
+        frequencyHBox.getChildren().add(this.frequencySlider);
+        phaseHBox.getChildren().add(phaseLabel);
+        phaseHBox.getChildren().add(this.phaseSlider);
+        zoomHBox.getChildren().add(zoomLabel);
         zoomHBox.getChildren().add(this.zoomSlider);
 
-        // Arrange in BorderPane
-        BorderPane root = new BorderPane();
         root.setTop(labelFunction);
-        root.setCenter(graph);
-        root.setBottom(vbox);
-        vbox.getChildren().add(amplitudeHBox);
-        vbox.getChildren().add(frequencyHBox);
-        vbox.getChildren().add(phaseHBox);
-        vbox.getChildren().add(zoomHBox);
+        root.setCenter(graphPane);
+        root.setBottom(sinParamterVBox);
+        Insets padding = new Insets(10);
+        sinParamterVBox.setPadding(padding);
 
-        // Handler
-        // this.amplitudeSlider.valueProperty().addListener((oldValue, newValue)
-        // -> this.sinusPresenter.onAmplitudeZoom(oldValue, newValue));
+        sinParamterVBox.getChildren().add(amplitudeHBox);
+        sinParamterVBox.getChildren().add(frequencyHBox);
+        sinParamterVBox.getChildren().add(phaseHBox);
+        sinParamterVBox.getChildren().add(zoomHBox);
+
+        // Handlers
         this.amplitudeSlider.valueProperty().addListener((s, x, dxs) -> this.sinusPresenter.onAmplitudeChanged(s, x, dxs));
         // Set up x, y Axes
 
-        this.scene = new Scene(root, 620, 300);
+        this.scene = new Scene(root, 900, 500);
 
     }
     // 1. Using FXCollections.observableArrayList(Array)
