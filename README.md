@@ -24,7 +24,8 @@ Das Hauptziel ist alte Klausuren zusammen zu lösen mit ausführlichen Kommentar
 - **fopt.asb**: beinhalt alle asb selbstgemachte ASB-Aufgaben, ASB-Zusatzaufgaben,  ASB-Pflichtaufgaben
 - **fopt.klausur**: sind alle Klausuren. Hier können alle Lösungsansätze gepackt werden
      - e.g. fopt.klausur.ws2013 
-
+# Bücher
+* [Java Threads and the Concurrency Utilities- Jef f Friesen](https://drive.google.com/drive/folders/1vY-kjzbNTtK9c46XpZM1Y0GFERTEiDD2): Buch mit Aufgaben und Lösung  ür die Verständnis
 # Links
 * [ASB-Zusatzaufgaben](https://olat.vcrp.de/auth/RepositoryEntry/2535325809/CourseNode/92787204650784)
 * [Online-Tutorien](https://olat.vcrp.de/auth/RepositoryEntry/2535325809/CourseNode/94291001914984)
