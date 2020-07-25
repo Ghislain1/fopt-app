@@ -13,7 +13,10 @@ Das Hauptziel ist alte Klausuren zusammen zu lösen mit ausführlichen Kommentar
 ##  Coding
 1. Clone the Repository 
 1. Start your IDE and Import the project as git project
-1. Create your package as follows fopt.klausur.your firstname.period e.g. fopt.klausur.ghis.ws2013
+1. Create your package as follows fopt.klausur.your firstname.period:
+   * e.g. fopt.klausur.**ghis**.ss2019, fopt.klausur.**lin**.ss2019, fopt.klausur.**jochen**.ss2019
+   * Diese package dient nur um die verwendenten Klassen auszuproblieren
+   * Die tatsächliche Lösung soll as **Mark Down file** in fopt.klausr.xxxxx e.g. Ghislain.md, jochen.md, lin.md
 1. Export your package in module-info.java file e.g. exports fopt.klausur.ghis.ws2013;
 1. Commit your change with suitable comments
 1. Push it 
