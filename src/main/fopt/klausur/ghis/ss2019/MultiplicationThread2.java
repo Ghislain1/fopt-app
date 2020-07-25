@@ -19,18 +19,9 @@ public class MultiplicationThread2 extends Thread
     public void run()
     {
         int[] args =
-        { 1, 2, 3, 4, 5 };
-        int timeToSleep = (int) (random.nextDouble() * 1000);
-        int result = this.multiplication.multiply(args);
-        System.out.println(Thread.currentThread().getName() + ": " + result);
-        try
-        {
-            Thread.sleep(timeToSleep);
-        }
-        catch (InterruptedException e)
-        {
+        { 1, 1, 1, 1, 2 };
 
-            e.printStackTrace();
-        }
+        long result = this.multiplication.multiply(args);
+        System.out.println(">> " + Thread.currentThread().getName() + ": " + result);
     }
 }

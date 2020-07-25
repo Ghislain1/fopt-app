@@ -7,13 +7,19 @@ public class MultiplicationDemo
     {
         // GgO
         Multiplication multiplication = new Multiplication();
-
-        for (int i = 1; i <= 5; i++)
+        // Array = { 1, 2, 3, 4, 5 };
+        Thread t1 = new MultiplicationThread1(multiplication, " MultiThread Array= { 1, 2, 3, 4, 5 }");
+        Thread t2 = new MultiplicationThread2(multiplication, " MultiThread Array= {1, 1, 1, 1, 2}");
+        try
         {
-
-            new MultiplicationThread1(multiplication, " MultiThread Nr." + i);
-
+            t1.join();
+            t2.join();
         }
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+
     }
 
 }
