@@ -31,6 +31,8 @@ module fopt
 
     exports fopt.buch.abschn452;
 
+    exports fopt.klausur.ghis.ws2013;
+
     exports pp.filelocking;
 
     exports gui.graphics.sinus;

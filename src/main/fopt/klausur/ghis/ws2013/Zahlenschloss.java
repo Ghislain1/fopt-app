@@ -1,4 +1,4 @@
-package fopt.klausur.ws2013;
+package fopt.klausur.ghis.ws2013;
 
 public class Zahlenschloss
 {
