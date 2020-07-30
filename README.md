@@ -15,8 +15,8 @@ Das Hauptziel ist alte Klausuren zusammen zu lösen mit ausführlichen Kommentar
 - **fopt.lehrmaterial**: Aufgaben aus der Lehrmaterial 
 - **fopt.asb**: beinhalt alle asb selbstgemachte ASB-Aufgaben, ASB-Zusatzaufgaben,  ASB-Pflichtaufgaben
 - **fopt.klausur**: sind alle Klausuren. Hier können alle Lösungsansätze gepackt werden
-     - fopt.klausur.ws2013 beinhält z.b ghislain.md, jochen.md, lin.md
-     - fopt.klausur.ss2019 beinhält z.b ghislain.md, jochen.md, lin.md
+     - fopt.klausur.ws2013 hat z.b ghislain.md, jochen.md, lin.md
+     - fopt.klausur.ss2019 hat z.b ghislain.md, jochen.md, lin.md
  ##  Coding
 1. Clone the Repository 
 1. Start your IDE and Import the project as git project
