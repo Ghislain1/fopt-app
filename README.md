@@ -10,24 +10,24 @@
 Übungen, **Alte Prüfungen** in Fortgeschrittene Programmiertechniken (FOPT) mit Java.
 Das Hauptziel ist alte Klausuren zusammen zu lösen mit ausführlichen Kommentaren auf  jeweils Fragen
 # Howtos
-##  Coding
-1. Clone the Repository 
-1. Start your IDE and Import the project as git project
-1. Create your package as follows fopt.klausur.your firstname.period:
-   * e.g. fopt.klausur.**ghis**.ss2019, fopt.klausur.**lin**.ss2019, fopt.klausur.**jochen**.ss2019
-   * Diese package dient nur um die verwendenten Klassen auszuproblieren
-   * Die tatsächliche Lösung soll as **Mark Down file** in fopt.klausr.xxxxx e.g. Ghislain.md, jochen.md, lin.md
-1. Export your package in module-info.java file e.g. exports fopt.klausur.ghis.ws2013;
-1. Commit your change with suitable comments
-1. Push it 
-1. That's all!!
 ## Package structure in src folder
 - **fopt.buch**: Übungsaufgaben,Listing, Abschnitte und Beispiele aus dem Buch
 - **fopt.lehrmaterial**: Aufgaben aus der Lehrmaterial 
 - **fopt.asb**: beinhalt alle asb selbstgemachte ASB-Aufgaben, ASB-Zusatzaufgaben,  ASB-Pflichtaufgaben
 - **fopt.klausur**: sind alle Klausuren. Hier können alle Lösungsansätze gepackt werden
-     - fopt.klausur.ws2013 
-     - fopt.klausur.ss2019 
+     - fopt.klausur.ws2013 hat z.b ghislain.md, jochen.md, lin.md
+     - fopt.klausur.ss2019 hat z.b ghislain.md, jochen.md, lin.md
+ ##  Coding
+1. Clone the Repository 
+1. Start your IDE and Import the project as git project
+1. Create your package as follows fopt.klausur.your firstname.period:
+   * e.g. fopt.klausur.**ghis**.ss2019, fopt.klausur.**lin**.ss2019, fopt.klausur.**jochen**.ss2019
+   * Diese package dient nur um die verwendenten Klassen auszuproblieren
+   * Die tatsächliche Lösung soll als **Mark Down file** in fopt.klausur.xxxxx e.g. Ghislain.md, jochen.md, lin.md
+1. Export your package in module-info.java file e.g. exports fopt.klausur.ghis.ws2013;
+1. Commit your change with suitable comments
+1. Push it 
+1. That's all!!
 # Bücher
 * [Java Threads and the Concurrency Utilities- Jef f Friesen](https://drive.google.com/drive/folders/1vY-kjzbNTtK9c46XpZM1Y0GFERTEiDD2): Buch mit Aufgaben und Lösung  ür die Verständnis
 # Links
