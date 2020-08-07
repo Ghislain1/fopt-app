@@ -16,7 +16,7 @@ public class Main extends Application
     public void start(Stage primaryStage)
     {
         // JavaFx Elements
-        SinusModel sinusModel = new SinusModel(0.57, 0.23 / (2 * Math.PI), 0D, 2D);
+        SinusModel sinusModel = new SinusModel(0.57, 2.09, 0.0, 50.0);
         SinusPresenter sinusPresenter = new SinusPresenter();
 
         SinusView sinusView = new SinusView(sinusPresenter);

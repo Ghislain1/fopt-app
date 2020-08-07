@@ -1,7 +1,11 @@
 package gui.graphics.sinus;
 
+import java.text.DecimalFormat;
+
 public class SinusModel
 {
+    private static DecimalFormat df = new DecimalFormat("0.00");
+
     private Double amplitude;
 
     private Double frequency;
@@ -56,6 +60,19 @@ public class SinusModel
     public void setZoom(Double zoom)
     {
         this.zoom = zoom;
+    }
+
+    public String getFunctionDef()
+    {
+        if (this.phase == 0.00)
+        {
+            return df.format(amplitude) + "* sin(" + df.format(frequency) + "*x)";
+        }
+        if (phase < 0)
+        {
+            return df.format(amplitude) + "* sin(" + df.format(frequency) + "*x -" + df.format(phase) + ")";
+        }
+        return df.format(amplitude) + "* sin(" + df.format(frequency) + "*x +" + df.format(phase) + ")";
     }
 
 }
