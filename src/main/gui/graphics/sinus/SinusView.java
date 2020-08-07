@@ -1,5 +1,7 @@
 package gui.graphics.sinus;
 
+import java.math.BigDecimal;
+
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -57,43 +59,30 @@ public class SinusView
 
     public void draw(double amplitude, double frequency, double phase, double zoom)
     {
-        int numberOfPoints = 10;
+        int numberOfPoints = 5000;
         Double[] points = new Double[numberOfPoints];
 
-        double deltaX = 1;
-        double x = xCenter;
+        double deltaX = 2.6;
+        double x = -numberOfPoints / 2;
+
         double y = 0;
         int index = 0;
-        int start = -10;
-        int end = 9;
-        double ds = end - start / numberOfPoints;
+        int counter = 0;
 
         do
         {
             // Berechnen
-            x = ds + x - xCenter;
-            y = amplitude * Math.sin(frequency * x + phase);
-            System.out.println(x);
+            x = x + deltaX;
+            y = round(amplitude * Math.sin(frequency * x + phase), 2) + yCenter;
+            counter++;
+
             // Storage
             points[index] = x;
             points[index + 1] = y;
-
             index += 2;
-
+            System.out.println(x + "--> " + y + " Nr. " + counter);
         }
         while (index < numberOfPoints - 1);
-
-        int count = 0;
-        for (double db : points)
-        {
-            if (count % 2 == 0)
-            {
-                // System.out.println(" (" + points[count] + " , " +
-                // points[count + 1] + ")");
-            }
-            count++;
-
-        }
 
         this.polyline.getPoints().clear();
         this.polyline.getPoints().addAll(points);
@@ -101,6 +90,16 @@ public class SinusView
         this.polyline.setStrokeWidth(1);
         this.polyline.setScaleZ(zoom);
 
+    }
+
+    private double round(double value, int places)
+    {
+        if (places < 0)
+            throw new IllegalArgumentException();
+
+        BigDecimal bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, java.math.RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     private void initUi()

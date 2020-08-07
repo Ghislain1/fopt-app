@@ -47,10 +47,10 @@ Public class LogicalTime{
 ```
 * c) notifyAll()-Methode ist NICHT nötig: Durch Veänderung des Zustands kann nur ein Thread Ihre While-Wait-Schleife verlassen und wir haben nur eine Warte-bedinung.
 
-# Aufgabe 3: Absch.1.1 Zusatz-Skript
+# Aufgabe 3
 
 * a) UML-Klassendiagramm - Assoziation 
-   A ______> I : A und I in einem Rechteck und I mit Schlüsselwort <<Interface>> gekenntzeichen
+   A ______> I : A und I in einem Rechteck und I mit Schlüsselwort <<Interface>> gekenntzeichen (Absch.1.1 Zusatz-Skript)
  
  ```java
   interface I{
@@ -63,8 +63,8 @@ Public class LogicalTime{
    }
   }
   ```
-  * b) Benutzt-Beziehung (Abschn 1.1.2 Zusatzt-Skript)
-   Die Benutzt-Beziehung kann verwendet werden, wenn ein Interface J als Argument einer Methode von Interface I verwenden ist oder als Ruckgabewert
+  * b) Benutzt-Beziehung  
+   Die Benutzt-Beziehung kann verwendet werden, wenn ein Interface J als Argument einer Methode von Interface I verwenden ist oder als Ruckgabewert (Absch.1.1 Zusatz-Skript)
    I -----> J : I, J in einem Rechtteck und mit Schlüsselwort <<Interface>> gekenntzeichen mit ausgeüllte Dreieckfür den Pfeil
    
    ```Java
@@ -76,7 +76,8 @@ Public class LogicalTime{
    ```
    
    * c) Die Vererbungsbeziehung zwischen 2 Interface (Abschnitt 1.1.3 Zusatzt-Skript)
-   - Es gibt unterschied zwischen Vererbungsbeziehung und Implementierungszeiheung
+   
+   Es gibt unterschied zwischen Vererbungsbeziehung und Implementierungszeiheung
    
    I _____> J : I, Der Pfeil ist **NICHT** ausgefüllt.
    
@@ -87,5 +88,43 @@ Public class LogicalTime{
    interface I extends J{
    }
    ```
+   
+# Aufgabe 4 : On working
+   **MVP-Prinzip**  steht für Model- View-Presenter, ist eine Design-Pattern für die Implementierung einer Anwendung, Die Grundidee ist die Trennung von Geschäftlogik, Presentionslogik und den Anzeige-Komponenten
+   * Model: Kapselt die  Geschäftlogik und deren Daten
+   * Presenter: Verknüft Model und View, steuern den Ablauf der Anwendung e.g beim Ereignis
+   * Views: Steht im Pinzip was der User sieht, aber auch die Container-Element, die für die Anordnung der Komponent dient.
+   
+# Aufgabe 5: On working
+**CheckBox** - hat ein Property isSelected vom Typ boolean
+
+```java
+CheckBox checkBox = new CheckBox("I love FOPT");
+   checkBox.selectedProperty().addListener((a, b, c) ->
+        {
+            if (a.getValue())
+            {
+                System.out.println("hurra");
+            }
+            else
+            {
+                System.out.println("schade");
+            }
+
+        });
+        wobei:
+        * a: vom Typ ObservableValue<? extends Boolean> 
+        * b: referenzieren  den neuen Wert der property selected of type Boolean
+        * c: referenzieren  den alten Wert der property selected of CheckBox
+        ** checkoBox.isSelected Nict mehr vorhand**
+```
+
+# Aufgabe 6: - einfach
+
+# Aufagbe 7: TCP -bald
+
+# Aufagbe 8: RMI - noch mal lesen
+   
+   
    
    
