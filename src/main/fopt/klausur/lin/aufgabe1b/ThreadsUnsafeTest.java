@@ -1,4 +1,4 @@
-package fopt.klausur.ss2019.aufgabe1b;
+package fopt.klausur.lin.aufgabe1b;
 
 public class ThreadsUnsafeTest {
     public static void main(String[] args) {
