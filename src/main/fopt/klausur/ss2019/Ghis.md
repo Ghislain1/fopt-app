@@ -21,7 +21,7 @@ Public class LogicalTime{
  private boolean canSetTicks;
  public synchronized void tick()
  {
-   this.tick--;
+   this.ticks--;
    this.notify();
  }
  public synchronized void waitTicks( int waitingTicks)
@@ -31,8 +31,8 @@ Public class LogicalTime{
  {
    return;
  }
- this.tick = waitingTicks;
- while(tick>0)
+ this.ticks = waitingTicks;
+ while(ticks>0)
  {
   try
   {
