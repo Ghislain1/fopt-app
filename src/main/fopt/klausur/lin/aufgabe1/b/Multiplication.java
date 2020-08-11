@@ -1,7 +1,7 @@
-package fopt.klausur.lin.aufgabe1a;
+package fopt.klausur.lin.aufgabe1.b;
 
 public class Multiplication {
-    private int result;
+    private volatile int result;
     public int multiply(int[] args){
         result = 1;
         for(int arg: args){

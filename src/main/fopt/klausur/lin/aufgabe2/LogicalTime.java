@@ -1,4 +1,4 @@
-package fopt.klausur.lin.aufgabe2a;
+package fopt.klausur.lin.aufgabe2;
 
 public class LogicalTime {
 

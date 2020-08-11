@@ -1,9 +1,9 @@
-package fopt.klausur.lin.aufgabe1a;
+package fopt.klausur.lin.aufgabe1.b;
 
 public class ThreadsUnsafeTest {
     public static void main(String[] args) {
         Multiplication multiplication = new Multiplication();
-        int[] intArr = new int[]{1,2,3,4,5,6,7,8,9};
+        int[] intArr = new int[]{1,2,3,4};
 
         new Thread(()-> {
             multiplication.multiply(intArr);
