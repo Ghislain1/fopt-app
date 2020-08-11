@@ -1,8 +1,11 @@
-public Interface Room {
+
+```java
+Interface Room {
     Class Player{
-      String name;
+      private String name;
     }
 }
+```
 
 Association  Room---->Player
 
