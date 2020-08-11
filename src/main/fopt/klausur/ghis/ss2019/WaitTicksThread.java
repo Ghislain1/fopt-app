@@ -15,7 +15,8 @@ public class WaitTicksThread extends Thread
     public void run()
     {
 
-        this.logicalTime.waitTicks(10);
+        // Siehe Aufgabe Paramter n = 50;
+        this.logicalTime.waitTicks(50);
 
     }
 }

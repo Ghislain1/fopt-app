@@ -14,7 +14,8 @@ public class WaitTicksThreadWithSmallValue extends Thread
     @Override
     public void run()
     {
-        this.logicalTime.waitTicks(2);
+        // Siehe Aufgabe Paramter n = 30;
+        this.logicalTime.waitTicks(30);
     }
 
 }

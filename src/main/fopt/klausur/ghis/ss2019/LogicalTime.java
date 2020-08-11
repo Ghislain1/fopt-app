@@ -14,9 +14,10 @@ public class LogicalTime
         {
             try
             {
-                System.out.println(ticks + " -> waitTicks() " + Thread.currentThread().getName());
+
                 this.wait();
                 ticks--;
+                System.out.println(Thread.currentThread().getName() + ": " + ticks);
             }
             catch (Exception e)
             {
