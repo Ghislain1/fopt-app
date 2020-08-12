@@ -37,4 +37,6 @@ module fopt
 
     exports gui.graphics.sinus;
 
+    exports fopt.klausur.lin.aufgabe5;
+
 }
