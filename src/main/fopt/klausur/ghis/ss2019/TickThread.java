@@ -14,7 +14,7 @@ public class TickThread extends Thread
     @Override
     public void run()
     {
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 55; i++)
         {
             try
             {
