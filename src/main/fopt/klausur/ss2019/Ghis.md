@@ -16,7 +16,7 @@
 * b) Lösung
 
 ```java
-Public class LogicalTime{
+public class LogicalTime{
  private int ticks;
  private boolean canSetTicks;
  public synchronized void tick()

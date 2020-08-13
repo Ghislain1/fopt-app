@@ -9,4 +9,4 @@ interface Player{
 }
 ```
 
-Composition  A-----<filled>B
+Benutzt-Beziehung  Room-----benutzt-->Player

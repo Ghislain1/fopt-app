@@ -27,18 +27,32 @@ public class Aufgabe5 extends Application
         cb.setText("First");
 
         // set event to checkbox
-        boolean isSelected = true;
-        cb.setOnAction((ActionEvent e) ->{
-               if(cb.isSelected())
-               {System.out.println("hurra");}
-               else {
-                   System.out.println("shade");
-               }
+//        boolean isSelected = true;
+//        cb.setOnAction((ActionEvent e) ->{
+//               if(cb.isSelected())
+//               {System.out.println("hurra");}
+//               else {
+//                   System.out.println("shade");
+//               }
+//        });
+
+        // set object of ChangeListener to checkbox
+        // https://docs.oracle.com/javafx/2/binding/jfxpub-binding.htm
+        CheckBox checkBox = new CheckBox("I love FOPT");
+        checkBox.selectedProperty().addListener((a, b, c) ->
+        {
+            if (a.getValue())
+            {
+                System.out.println("hurra");
+            }
+            else
+            {
+                System.out.println("schade");
+            }
+
         });
 
-
-
-        HBox hbox = new HBox(cb);
+        HBox hbox = new HBox(checkBox);
         Scene scene = new Scene(hbox, 300, 100);
 
 

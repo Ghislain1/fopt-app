@@ -39,4 +39,6 @@ module fopt
 
     exports fopt.klausur.lin.aufgabe5;
 
+    exports fopt.klausur.lin.aufgabe6;
+
 }
