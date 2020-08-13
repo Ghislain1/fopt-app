@@ -29,7 +29,11 @@ module fopt
 
     exports fopt.buch.abschn413;
 
+    exports fopt.buch.absch431;
+
     exports fopt.buch.abschn452;
+
+    exports fopt.buch.absch433;
 
     exports fopt.klausur.ghis.ws2013;
 
