@@ -7,6 +7,8 @@ public class LogicalTime
 
     private int nextWaitingNumber;
 
+    private boolean canSetTicks;
+
     private int nextEnteringNumber;
 
     private int ticks;
@@ -24,6 +26,7 @@ public class LogicalTime
         if (this.ticks == 0)
         {
             // this.notify();
+            this.canSetTicks = true;
             this.notifyAll();
 
         }
@@ -38,19 +41,15 @@ public class LogicalTime
     {
         int myNumber = this.nextWaitingNumber++;
         int newWaitingTicks = waitingTicks;
-        while (myNumber != this.nextEnteringNumber || newWaitingTicks > 0)
+
+        while (newWaitingTicks > 0)
         {
             try
             {
                 // System.out.println(Thread.currentThread().getName() + "ist
-                // waiting ... waitingTicks= " + waitingTicks);
-                this.nextEnteringNumber++;
-                if (this.nextEnteringNumber == myNumber)
-                {
-                    this.ticks = waitingTicks;
-                }
-
+                // this.ticks = waitingTicks;
                 this.wait();
+                newWaitingTicks--;
                 System.out.println("-------------------> " + Thread.currentThread().getName() + " ist geweckt!");
             }
             catch (Exception e)
@@ -58,7 +57,7 @@ public class LogicalTime
                 e.printStackTrace();
             }
         }
-
+        this.canSetTicks = true;
         // this.notifyAll();
 
     }
