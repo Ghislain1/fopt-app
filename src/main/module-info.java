@@ -41,4 +41,6 @@ module fopt
 
     exports gui.graphics.sinus;
 
+    exports fopt.klausur.ghis.ss2019;
+
 }

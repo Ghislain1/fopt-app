@@ -120,7 +120,27 @@ CheckBox checkBox = new CheckBox("I love FOPT");
         ** checkoBox.isSelected Nict mehr vorhand**
 ```
 
-# Aufgabe 6: - einfach
+# Aufgabe 6: - Grafikprogrammierung
+```Java
+ private void mouseDragged(double x, double y)
+    {
+        this.c.setCenterX(x);
+        this.c.setCenterY(y);
+    }
+
+    private void mouseReleased(double x, double y)
+    {
+        this.c.setFill(Color.RED);
+    }
+
+    private void mousePressed(double x, double y)
+    {
+        this.c = new Circle(x, y, RADIUS);
+        this.c.setFill(null); // NICHT ausfuellen--> Wichtig sonst Dunkel
+        this.c.setStroke(Color.RED); // Farbe der Begrenzunglinie
+        this.graphicsPane.getChildren().add(this.c);
+    }
+```
 
 # Aufagbe 7: TCP -bald
 
