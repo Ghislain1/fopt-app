@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class UDPClient
 {
+    // TODO@GhZe. Erweiterung sleep( -Funktion())
     private static void sleepRandom()
     {
         int timeToSleep = (int) (new Random().nextDouble() * 1000);

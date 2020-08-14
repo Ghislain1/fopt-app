@@ -189,7 +189,7 @@ public class Pizza extends Application
             // if (ctls[i])
         }
 
-        String txt = "Sie gaben ein Pizza bestellt.\n Zutaten: " + arrayToString(zutaten) + ".\n Die Grösse ist " + this.piz + " .\n Der Preis beträgt : " + this.preis + "€.\n Vielen Dank.";
+        String txt = "Sie gaben ein Pizza bestellt.\n Zutaten: " + arrayToString(zutaten) + ".\n Die Groesse ist " + this.piz + " .\n Der Preis betraegt : " + this.preis + "€.\n Vielen Dank.";
         bestelltext.setText(txt);
     }
 
