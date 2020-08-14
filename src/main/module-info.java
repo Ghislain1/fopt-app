@@ -46,4 +46,6 @@ module fopt
     // TODO@Lin this package is not exist!! check it again if you have trouble
     // exports fopt.klausur.lin.aufgabe5;
 
+    exports fopt.klausur.lin.aufgabe6;
+
 }

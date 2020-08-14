@@ -1,18 +1,18 @@
 package fopt.klausur.lin.aufgabe1.b;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Multiplication {
-    private volatile int result;
+    private AtomicInteger result;
+
     public int multiply(int[] args){
-        result = 1;
+        int temp = 1;
+        result = new AtomicInteger(1);
         for(int arg: args){
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            result *= arg;
-            System.out.println(Thread.currentThread().getName() + "--" + result);
+            temp *= arg;
+            result.set(temp);
+            System.out.println(Thread.currentThread().getName() + "===" + result.get());
         }
-        return result;
+        return result.get();
     }
 }

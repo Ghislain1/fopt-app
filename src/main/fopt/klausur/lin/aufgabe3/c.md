@@ -7,3 +7,4 @@ interface B extends A
 { 
     public void m2(); 
 } 
+
