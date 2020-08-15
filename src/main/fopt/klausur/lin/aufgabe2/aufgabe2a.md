@@ -1,2 +1,4 @@
-die Lösung funktioniert nicht. durch keyword synchronized bei der Methode
-wird die Objekt bzw. this geblockt in multithreading. Dead blocking entsteht. 
+Die vorgegebene Lösung funktioniert aber mit einigen Problemen.
+
+die While-Wait-Schleife funktioniert nicht.
+1. die While Bedingung führt dazu, dass bei je  
