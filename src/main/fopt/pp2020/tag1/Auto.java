@@ -19,16 +19,13 @@ public class Auto extends Thread
     @Override
     public void run()
     {
-        while (true)
+        // Jades Auto versucht der Ampel nur 1 mal
+        for (Ampel ampel : this.ampelFeld)
         {
-            for (Ampel ampel : this.ampelFeld)
-            {
-
-                ampel.passieren();
-
-            }
+            ampel.passieren();
 
         }
+
     }
 
 }

@@ -16,6 +16,7 @@ public class Steuerung extends Thread
     @Override
     public void run()
     {
+        this.sleepRandom();
         boolean schalter = true;
         while (true)
         {
@@ -24,25 +25,25 @@ public class Steuerung extends Thread
             for (Ampel ampel : ampelFeld)
             {
                 // Langsam umschalten
-                this.sleepRandom();
-
+                // this.sleepRandom();
+                try
+                {
+                    // Zwei SekundenTakt umschalten
+                    Thread.sleep(2000);
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
                 if (schalter)
                 {
-                    // ampel.schalteGruen();
+                    ampel.schalteGruen();
 
                 }
                 else
                 {
                     ampel.schalteRot();
 
-                    if (ampel instanceof ItalienischeAmpel)
-                    {
-                        System.out.println("Waiting Cars(Italy): " + ampel.wartendeFahrzeuge());
-                    }
-                    else
-                    {
-                        System.out.println("Waiting Cars(Deutschland): " + ampel.wartendeFahrzeuge());
-                    }
                 }
 
             }
@@ -54,7 +55,7 @@ public class Steuerung extends Thread
     private void sleepRandom()
     {
         // [0,5000] secondes
-        int timeToSleep = (int) (new Random().nextDouble() * 5000);
+        int timeToSleep = 5000 + (int) (new Random().nextDouble() * 5000);
 
         try
         {

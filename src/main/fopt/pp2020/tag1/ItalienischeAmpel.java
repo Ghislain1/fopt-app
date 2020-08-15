@@ -9,7 +9,7 @@ public class ItalienischeAmpel implements Ampel
 
     public ItalienischeAmpel()
     {
-        this.ampel = Ampel.Gruen;
+        this.ampel = Ampel.Rot;
         this.numberOfWaitingCars = 0;
     }
 
@@ -32,24 +32,28 @@ public class ItalienischeAmpel implements Ampel
     @Override
     public synchronized void passieren()
     {
+        // TODO@GHZe Niemals etwas in the WHILE-WAIT-Schleife schreiben
+        this.numberOfWaitingCars++;
         while (this.ampel.equals(Ampel.Rot))
         {
             try
             {
-
-                this.numberOfWaitingCars++;
+                System.out.println(Thread.currentThread().getName() + " Italy WAITING " + this.numberOfWaitingCars);
                 this.wait();
-                this.numberOfWaitingCars--;
+
             }
             catch (InterruptedException e)
             {
                 e.printStackTrace();
             }
         }
+        System.out.println(Thread.currentThread().getName() + " Italy ROLLING ");
+
+        this.numberOfWaitingCars = 0;
 
     }
 
-    // sync weil? -- schreibende
+    // sync weil? --
     @Override
     public synchronized int wartendeFahrzeuge()
     {
