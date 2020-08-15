@@ -142,7 +142,9 @@ CheckBox checkBox = new CheckBox("I love FOPT");
     }
 ```
 
-# Aufagbe 7: TCP -bald
+# Aufagbe 7: TCP
+* Abschnitt 5.5 soll noch wiederholen werden
+* Abschnitt 5.5 Kommunikation ueber TCP mit Java-Sockets
 
 # Aufagbe 8: RMI - noch mal lesen
    
