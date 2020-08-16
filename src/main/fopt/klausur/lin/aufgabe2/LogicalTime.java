@@ -2,6 +2,8 @@ package fopt.klausur.lin.aufgabe2;
 
 public class LogicalTime {
 
+    private int ticks;
+
     public synchronized void tick(){
         System.out.println(Thread.currentThread().getName() + " in tick()");
         notifyAll();
@@ -9,7 +11,7 @@ public class LogicalTime {
     }
 
     public synchronized void waitTicks(int waitingTicks){
-        int ticks = waitingTicks;
+        this.ticks= waitingTicks;
         while (ticks > 0){
             try {
                 wait();
