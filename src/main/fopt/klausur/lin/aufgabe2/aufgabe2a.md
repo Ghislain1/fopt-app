@@ -1,2 +1,29 @@
-die Lösung funktioniert nicht. durch keyword synchronized bei der Methode
-wird die Objekt bzw. this geblockt in multithreading. Dead blocking entsteht. 
+a. die Lösung funktioniert. ??????
+
+
+b. Lösung
+``` java
+
+public class LogicalTime {
+
+    public synchronized void tick(){
+        notifyAll();
+    }
+
+    public synchronized void waitTicks(int waitingTicks){
+        int ticks = waitingTicks;
+        while (ticks > 0){
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            ticks--;
+        }
+    }
+}
+```
+
+c. notifyAll ist besser als notify.
+die Bedingung für notifyAll --> 1. es gibt mehrere Wartebedingungen (verschiedene Thread mit unterschiedlich waitTickValue)
+                            --> 2. kann durch die Änderung des Werts können mehr als ein Thread ihre while-wait-schleife verlassen.
