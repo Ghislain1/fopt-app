@@ -1,32 +1,30 @@
 package fopt.klausur.ghis.ss2019;
 
-import java.util.Random;
-
 public class LogicalTime
 {
+    public static int MAX_NUMBER_OF_TICKS_LONG = 10;
+
+    public static int MAX_NUMBER_OF_TICKS_SMALL = 5;
 
     private int nextWaitingNumber;
 
-    private boolean canSetTicks;
-
-    private int nextEnteringNumber;
+    private int nextPassingNumber;
 
     private int ticks;
 
     public LogicalTime()
     {
         this.nextWaitingNumber = 0;
-        this.nextEnteringNumber = 0;
+        this.nextPassingNumber = 0;
+        this.ticks = 0; // NOT Zero , because the first enter thread should wait
     }
 
     public synchronized void tick()
     {
-        System.out.println(Thread.currentThread().getName() + ": " + ticks);
 
         if (this.ticks == 0)
         {
-            // this.notify();
-            this.canSetTicks = true;
+
             this.notifyAll();
 
         }
@@ -39,40 +37,31 @@ public class LogicalTime
 
     public synchronized void waitTicks(int waitingTicks)
     {
-        int myNumber = this.nextWaitingNumber++;
-        int newWaitingTicks = waitingTicks;
+        // Nummber ziehen
+        int myNumber = this.nextWaitingNumber;
 
-        while (newWaitingTicks > 0)
+        // Wartenummer bereitstellen
+        this.nextWaitingNumber++;
+
+        while (this.ticks > 0 || myNumber != this.nextPassingNumber)
         {
             try
             {
-                // System.out.println(Thread.currentThread().getName() + "ist
-                // this.ticks = waitingTicks;
+                // TODO@GhZe nochmal vor klausur
+                System.out.println(Thread.currentThread().getName() + " *** WAITING  *** : ");
                 this.wait();
-                newWaitingTicks--;
-                System.out.println("-------------------> " + Thread.currentThread().getName() + " ist geweckt!");
+
             }
             catch (Exception e)
             {
                 e.printStackTrace();
             }
         }
-        this.canSetTicks = true;
-        // this.notifyAll();
+        this.ticks = waitingTicks;
+        this.nextPassingNumber++;
+        this.notifyAll();
+        System.out.println(Thread.currentThread().getName() + " ****   PASSING   *** ");
 
     }
 
-    private void sleepRandom()
-    {
-        int timeToSleep = (int) (new Random().nextDouble() * 1000);
-
-        try
-        {
-            Thread.sleep(timeToSleep);
-        }
-        catch (InterruptedException e)
-        {
-            e.printStackTrace();
-        }
-    }
 }

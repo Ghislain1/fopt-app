@@ -48,4 +48,6 @@ module fopt
     // exports fopt.klausur.lin.aufgabe6;
     exports fopt.buch.abschn55;
 
+    exports fopt.pp2020.tag2;
+
 }

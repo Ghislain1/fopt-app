@@ -22,6 +22,6 @@ public class MultiplicationThread1 extends Thread
         { 1, 2, 3, 4, 5 };
 
         int result = this.multiplication.multiply(args);
-        System.out.println(">> " + Thread.currentThread().getName() + ": " + result);
+
     }
 }

@@ -15,7 +15,7 @@ public class WaitTicksThreadWithSmallValue extends Thread
     public void run()
     {
         // Siehe Aufgabe Paramter n = 5;
-        this.logicalTime.waitTicks(5);
+        this.logicalTime.waitTicks(LogicalTime.MAX_NUMBER_OF_TICKS_SMALL);
     }
 
 }
