@@ -10,14 +10,15 @@ public class TickThread implements Runnable {
     @Override
     public void run() {
         int count = 0;
-        while (count < 10 ){
+        while (true ){
             try {
-                Thread.sleep(500);
+                Thread.sleep(300);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             logicalTime.tick();
             count++;
+            System.out.println(Thread.currentThread().getName() + " tick " +  count);
         }
     }
 }

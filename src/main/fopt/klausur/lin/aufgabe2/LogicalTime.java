@@ -16,10 +16,10 @@ public class LogicalTime {
             try {
                 wait();
                 ticks--;
+                System.out.println(Thread.currentThread().getName() + "---" + ticks);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(Thread.currentThread().getName() + "---" + ticks);
 
         }
     }
