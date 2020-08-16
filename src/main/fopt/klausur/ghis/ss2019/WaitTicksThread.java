@@ -16,7 +16,7 @@ public class WaitTicksThread extends Thread
     {
 
         // Siehe Aufgabe Paramter n = 50;
-        this.logicalTime.waitTicks(50);
+        this.logicalTime.waitTicks(LogicalTime.MAX_NUMBER_OF_TICKS_LONG);
 
     }
 }

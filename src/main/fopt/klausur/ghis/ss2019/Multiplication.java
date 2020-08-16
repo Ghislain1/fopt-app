@@ -29,7 +29,7 @@ public class Multiplication
             this.sleepRandom();
         }
 
-        // System.out.println(">> " + result);
+        System.out.println(">> " + Thread.currentThread().getName() + ": " + result);
         return result;
     }
 

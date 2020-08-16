@@ -14,7 +14,7 @@ public class TickThread extends Thread
     @Override
     public void run()
     {
-        for (int i = 0; i < 55; i++)
+        for (int i = 0; i < LogicalTime.MAX_NUMBER_OF_TICKS_SMALL + LogicalTime.MAX_NUMBER_OF_TICKS_LONG; i++)
         {
             try
             {

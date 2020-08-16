@@ -16,37 +16,73 @@
 * b) Lösung
 
 ```java
-public class LogicalTime{
- private int ticks;
- private boolean canSetTicks;
- public synchronized void tick()
- {
-   this.ticks--;
-   this.notify();
- }
- public synchronized void waitTicks( int waitingTicks)
- {
- // Fragen!!!
- if(!canSetTicks)
- {
-   return;
- }
- this.ticks = waitingTicks;
- while(ticks>0)
- {
-  try
-  {
-  this.wait();
-  }
-  catch( InterruptedException ex)
-  {
-  }
- }
- canSetTicks= true;
- }
+package fopt.klausur.ghis.ss2019;
+
+public class LogicalTime
+{
+    public static int MAX_NUMBER_OF_TICKS_LONG = 10;
+
+    public static int MAX_NUMBER_OF_TICKS_SMALL = 5;
+
+    private int nextWaitingNumber;
+
+    private int nextPassingNumber;
+
+    private int ticks;
+
+    public LogicalTime()
+    {
+        this.nextWaitingNumber = 0;
+        this.nextPassingNumber = 0;
+        this.ticks = 1; // NOT Zero , because the first enter thread should wait
+    }
+
+    public synchronized void tick()
+    {
+
+        if (this.ticks == 0)
+        {
+
+            this.notifyAll();
+
+        }
+        else
+        {
+            this.ticks--;
+        }
+
+    }
+
+    public synchronized void waitTicks(int waitingTicks)
+    {
+        // Nummber ziehen
+        int myNumber = this.nextWaitingNumber;
+
+        // Wartenummer bereitstellen
+        this.nextWaitingNumber++;
+
+        while (this.ticks > 0 || myNumber != this.nextPassingNumber)
+        {
+            try
+            {
+                
+                this.wait();
+
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        this.ticks = waitingTicks;
+        this.nextPassingNumber++;
+        this.notifyAll();
+  
+    }
+
 }
 ```
-* c) notifyAll()-Methode ist NICHT nötig: Durch Veänderung des Zustands kann nur ein Thread Ihre While-Wait-Schleife verlassen und wir haben nur eine Warte-bedinung.
+* c) notifyAll()-Methode ist sehr n�tig: Durch Veänderung des Zustands kann mehrere Thread Ihre While-Wait-Schleife verlassen und wir haben sogar mehrere Warte-bedinungen.
 
 # Aufgabe 3
 
