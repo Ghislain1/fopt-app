@@ -9,7 +9,6 @@ public class WaitTickThread implements Runnable {
 
     @Override
     public void run() {
-        int count = 0;
         while (true ){
             try {
                 Thread.sleep(300);
@@ -17,8 +16,6 @@ public class WaitTickThread implements Runnable {
                 e.printStackTrace();
             }
             logicalTime.waitTicks(50);
-            count++;
-            System.out.println(Thread.currentThread().getName() + " waittick " +  count);
         }
     }
 }

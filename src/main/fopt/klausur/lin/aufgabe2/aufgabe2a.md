@@ -18,7 +18,7 @@ public class LogicalTime {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            tickes--;
+            ticks--;
         }
     }
 }
