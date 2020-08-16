@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class Multiplication
 {
-    private int result;
 
     private void sleepRandom()
     {
@@ -22,11 +21,11 @@ public class Multiplication
 
     public int multiply(int[] args)
     {
-        this.result = 1;
+        int result = 1;
         for (int arg : args)
         {
             result *= arg;
-            this.sleepRandom();
+
         }
 
         System.out.println(">> " + Thread.currentThread().getName() + ": " + result);

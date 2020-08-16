@@ -1,12 +1,8 @@
 package fopt.klausur.ghis.ss2019;
 
-import java.util.Random;
-
 public class MultiplicationThread2 extends Thread
 {
     private Multiplication multiplication;
-
-    private Random random = new Random();
 
     public MultiplicationThread2(Multiplication multiplication, String name)
     {
@@ -19,9 +15,10 @@ public class MultiplicationThread2 extends Thread
     public void run()
     {
         int[] args =
-        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        { 0, 0 };
 
         long result = this.multiplication.multiply(args);
-        System.out.println(">> " + Thread.currentThread().getName() + ": " + result);
+        // System.out.println(">> " + Thread.currentThread().getName() + ": " +
+        // result);
     }
 }

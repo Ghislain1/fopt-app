@@ -19,7 +19,7 @@ public class MultiplicationThread1 extends Thread
     public void run()
     {
         int[] args =
-        { 1, 2, 3, 4, 5 };
+        { 2, 3 };
 
         int result = this.multiplication.multiply(args);
 

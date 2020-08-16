@@ -16,7 +16,7 @@ public class LogicalTime
     {
         this.nextWaitingNumber = 0;
         this.nextPassingNumber = 0;
-        this.ticks = 0; // NOT Zero , because the first enter thread should wait
+        this.ticks = 1; // NOT Zero , because the first enter thread should wait
     }
 
     public synchronized void tick()
@@ -24,15 +24,14 @@ public class LogicalTime
 
         if (this.ticks == 0)
         {
-
-            this.notifyAll();
-
+            // this.notifyAll();
         }
         else
         {
-            this.ticks--;
+            // this.ticks--;
         }
-
+        this.ticks--;
+        this.notifyAll();
     }
 
     public synchronized void waitTicks(int waitingTicks)

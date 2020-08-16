@@ -7,8 +7,8 @@ public class MultiplicationDemo
     {
         // GgO
         Multiplication multiplication = new Multiplication();
-        // Array = { 1, 2, 3, 4, 5 };
-        Thread t1 = new MultiplicationThread1(multiplication, " THREADWithResult_120  -- ");
+
+        Thread t1 = new MultiplicationThread1(multiplication, "OtherThread  -- ");
         Thread t2 = new MultiplicationThread2(multiplication, " THREAD_REsult_0 ---");
         try
         {

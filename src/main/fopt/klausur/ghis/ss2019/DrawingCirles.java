@@ -27,7 +27,7 @@ public class DrawingCirles extends Application
         this.graphicsPane = new Pane();
         this.graphicsPane.setOnMousePressed(e -> mousePressed(e.getX(), e.getY()));
         this.graphicsPane.setOnMouseDragged(e -> mouseDragged(e.getX(), e.getY()));
-        this.graphicsPane.setOnMouseReleased(e -> mouseReleased(e.getX(), e.getY()));
+        this.graphicsPane.setOnMouseReleased(e -> mouseReleased());
 
         primaryStage.setTitle("Rote Kreise");
         primaryStage.setScene(new Scene(this.graphicsPane, 344, 120));
@@ -41,7 +41,7 @@ public class DrawingCirles extends Application
         this.c.setCenterY(y);
     }
 
-    private void mouseReleased(double x, double y)
+    private void mouseReleased()
     {
         this.c.setFill(Color.RED);
     }

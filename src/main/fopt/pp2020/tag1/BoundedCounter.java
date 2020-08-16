@@ -37,7 +37,7 @@ public class BoundedCounter
             }
         }
         this.counter++;
-        // Denn mehrere Thread können Ihre While-Wait-Schleife verlasen
+        // Denn mehrere Thread koennen Ihre While-Wait-Schleife verlasen
         this.notifyAll();
     }
 
