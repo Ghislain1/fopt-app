@@ -44,8 +44,11 @@ module fopt
     exports fopt.klausur.ghis.ss2019;
 
     // TODO@Lin this package is not exist!! check it again if you have trouble
-    // exports fopt.klausur.lin.aufgabe5;
-    // exports fopt.klausur.lin.aufgabe6;
+    // ToDo@Ghislain: this two package exists.
+    exports fopt.klausur.lin.aufgabe5;
+
+    exports fopt.klausur.lin.aufgabe6;
+
     exports fopt.buch.abschn55;
 
     exports fopt.pp2020.tag2;
