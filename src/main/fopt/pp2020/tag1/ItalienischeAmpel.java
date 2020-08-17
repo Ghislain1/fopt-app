@@ -5,40 +5,48 @@ public class ItalienischeAmpel implements Ampel
     // Gruen oder Rot
     private String ampel;
 
-    private int numberOfWaitingCars;
+    private boolean istRot;
+
+    private boolean istGruen;
+
+    private int wartendeFahrzeuge;
 
     public ItalienischeAmpel()
     {
-        this.ampel = Ampel.Rot;
-        this.numberOfWaitingCars = 0;
+        this.istGruen = !this.istRot;
+        this.wartendeFahrzeuge = 0;
     }
 
     @Override
     public synchronized void schalteRot()
     {
-        this.ampel = Ampel.Rot;
+        this.istGruen = false;
+        this.istRot = true;
 
     }
 
     @Override
     public synchronized void schalteGruen()
     {
-        this.ampel = Ampel.Gruen;
+        this.istGruen = true;
+        this.istRot = false;
 
         // Denn mehrere Threads duerfen Ihre While-Wait-Schleife verlassen
-        this.notify();
+        this.notifyAll();
     }
 
     @Override
     public synchronized void passieren()
     {
         // TODO@GHZe Niemals etwas in the WHILE-WAIT-Schleife schreiben
-        this.numberOfWaitingCars++;
-        while (this.ampel.equals(Ampel.Rot))
+        // Siehe Schablone in Buch
+        this.wartendeFahrzeuge++;
+        while (!this.istGruen && this.istRot)
         {
             try
             {
-                System.out.println(Thread.currentThread().getName() + " Italy WAITING " + this.numberOfWaitingCars);
+
+                println(Thread.currentThread().getName() + " Italy-WAITING " + this.wartendeFahrzeuge);
                 this.wait();
 
             }
@@ -47,17 +55,22 @@ public class ItalienischeAmpel implements Ampel
                 e.printStackTrace();
             }
         }
-        System.out.println(Thread.currentThread().getName() + " Italy ROLLING ");
+        println(Thread.currentThread().getName() + " Italy ROLLING ");
 
-        this.numberOfWaitingCars = 0;
+        this.wartendeFahrzeuge--;
 
+    }
+
+    private static void println(String msg)
+    {
+        System.out.println(msg);
     }
 
     // sync weil? --
     @Override
     public synchronized int wartendeFahrzeuge()
     {
-        return this.numberOfWaitingCars;
+        return this.wartendeFahrzeuge;
     }
 
 }
