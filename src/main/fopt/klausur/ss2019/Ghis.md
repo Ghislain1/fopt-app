@@ -132,7 +132,7 @@ public class LogicalTime
    * Presenter: VerknÃ¼ft Model und View, steuern den Ablauf der Anwendung e.g beim Ereignis
    * Views: Steht im Pinzip was der User sieht, aber auch die Container-Element, die fÃ¼r die Anordnung der Komponent dient.
    
-# Aufgabe 5: On working
+# Aufgabe 5: 
 **CheckBox** - hat ein Property isSelected vom Typ boolean
 
 ```java
@@ -164,7 +164,7 @@ CheckBox checkBox = new CheckBox("I love FOPT");
         this.c.setCenterY(y);
     }
 
-    private void mouseReleased(double x, double y)
+    private void mouseReleased( )
     {
         this.c.setFill(Color.RED);
     }
@@ -179,8 +179,65 @@ CheckBox checkBox = new CheckBox("I love FOPT");
 ```
 
 # Aufagbe 7: TCP
-* Abschnitt 5.5 soll noch wiederholen werden
-* Abschnitt 5.5 Kommunikation ueber TCP mit Java-Sockets
+## 7a)
+Bemerkung:  In  dieser Aufgabe soll Folgendes noch betrachted werden:
+* Erzeugung  eines **InputStreamReader** Objektes mit Java
+* NewLine bei TCP-Segment  mit Java-Klasse erkennen
+
+```java
+
+public class TCPSocketServer
+{
+
+    public static void main(String[] args)
+    {
+        try (ServerSocket socketServer = new ServerSocket(7777))
+        {
+            while (true)
+            {
+                System.out.println("************** Server listening **********************");
+                try (Socket socket = socketServer.accept())
+                {
+                    socket.getOutputStream();
+
+                    // Aus Formelsammlung lesen
+                    BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+                    StringBuilder sb = new StringBuilder();
+                    while (true)
+                    {
+                        // Jeweils Zeile lesen
+                        String request = br.readLine();
+
+                        // Check end of line --> request == "EOL" ||
+                        if (request == null)
+                        {
+                            break;
+                        }
+
+                        // Append  Zeile
+                        sb.append(request + "\n");
+
+                    }
+                    // Ausgabe auf  Console
+                    System.out.print(sb.toString());
+                }
+                catch (Exception ewx)
+                {
+                    ewx.printStackTrace();
+                }
+
+            }
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+
+        }
+
+    }
+```
 
 # Aufagbe 8: RMI - noch mal lesen
    

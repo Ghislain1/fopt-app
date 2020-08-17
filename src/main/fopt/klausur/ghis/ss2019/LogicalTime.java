@@ -20,7 +20,7 @@ public class LogicalTime
     }
 
     public synchronized void tick()
-    {      
+    {
         this.ticks--;
         this.notifyAll();
     }
