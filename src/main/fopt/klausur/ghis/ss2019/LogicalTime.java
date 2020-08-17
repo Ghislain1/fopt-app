@@ -21,15 +21,6 @@ public class LogicalTime
 
     public synchronized void tick()
     {
-
-        if (this.ticks == 0)
-        {
-            // this.notifyAll();
-        }
-        else
-        {
-            // this.ticks--;
-        }
         this.ticks--;
         this.notifyAll();
     }
