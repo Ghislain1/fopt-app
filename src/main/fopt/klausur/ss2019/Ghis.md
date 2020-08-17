@@ -239,6 +239,48 @@ public class TCPSocketServer
     }
 ```
 
+## 7b1)
+```` Java
+ClientX
+send            
+receive
+send
+receive
+send
+receive
+
+ClientY
+send            
+send
+send
+receive
+receive
+receive
+```
+Die Bearbeitungszeit fuer ClientX und ClientY  ist gleich, denn bei sequenzieller Server Spielt die Reihenfolge keine Rolle bei Abarbeitung von Anfragen bezueglich der Zeit. Somit ist die Geschwindigkeit gleich.
+
+## 7b2)
+```` Java
+ClientX
+send            
+receive
+send
+receive
+send
+receive
+...
+
+ClientY 
+send            
+send
+send
+receive
+receive
+receive
+....
+```
+Bei parallen TCP Server ist ClientY schneller als ClientX, da jeden gesende Request sindsofort in einer Thread ausgelagernt und bearbetet, somit ist die Antwortszeit kurzer. Dadurch ist er schneller.
+
 # Aufagbe 8: RMI - noch mal lesen
    
    
