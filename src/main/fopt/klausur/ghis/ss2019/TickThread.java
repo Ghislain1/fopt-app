@@ -2,9 +2,9 @@ package fopt.klausur.ghis.ss2019;
 
 public class TickThread extends Thread
 {
-    private LogicalTime logicalTime;
+    private LogicalTime2 logicalTime;
 
-    public TickThread(String name, LogicalTime logicalTime)
+    public TickThread(String name, LogicalTime2 logicalTime)
     {
         this.setName(name);
         this.logicalTime = logicalTime;
@@ -14,7 +14,7 @@ public class TickThread extends Thread
     @Override
     public void run()
     {
-        for (int i = 0; i < LogicalTime.MAX_NUMBER_OF_TICKS_SMALL + LogicalTime.MAX_NUMBER_OF_TICKS_LONG; i++)
+        while (true)
         {
             try
             {

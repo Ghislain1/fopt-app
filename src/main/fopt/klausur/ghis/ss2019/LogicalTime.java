@@ -2,10 +2,6 @@ package fopt.klausur.ghis.ss2019;
 
 public class LogicalTime
 {
-    public static int MAX_NUMBER_OF_TICKS_LONG = 10;
-
-    public static int MAX_NUMBER_OF_TICKS_SMALL = 5;
-
     private int nextWaitingNumber;
 
     private int nextPassingNumber;
