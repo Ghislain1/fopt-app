@@ -159,22 +159,17 @@ public class GrafikEdiotr extends Application
             }
             else if (this.selectedRadioButtonText.equals("Kreis"))
             {
-
                 if (this.startX == lastPositionX && this.startY == lastPositionY)
                 {
                     this.grafikPane.getChildren().remove(circle);
                 }
                 else
                 {
-
                     this.circle.setStroke(Color.BLACK);
                     // Duennere/dickere Linie
                     this.circle.setStrokeWidth(2);
-
                     this.kreise.add(this.circle);
                 }
-
-                ;
 
             }
             else if (this.selectedRadioButtonText.equals("Rechtteck"))

@@ -8,7 +8,7 @@ import java.rmi.RemoteException;
 // Erzeugen ein CounterImpl Objekt
 // Registrieren das Objekt bei der Auskunft?
 // 1. Wer ist die Auskunft bei RMI?
-// 2. Wo soll man das Kommando rmiregistry durchführen? 
+// 2. Wo soll man das Kommando rmiregistry durchfuehren? 
 public class RMIServer
 {
 
@@ -35,3 +35,4 @@ public class RMIServer
 
 }
 // 1. Betriebsystem?
+// 2. Wo die Class datein liegen mit Package fullName

@@ -68,7 +68,7 @@ public class Model
 
     private double sum;
 
-    // Setzt für den Gegenstand mit der Bezeichnung name die
+    // Setzt fuer den Gegenstand mit der Bezeichnung name die
     public void setSelected(String name, boolean selected)
     {
 

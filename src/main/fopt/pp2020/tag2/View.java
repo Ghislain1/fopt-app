@@ -69,7 +69,7 @@ public class View
 
     }
 
-    // : Aktualisiert die Anzeige für das aktuelle Gesamtgewicht des Rucksacks.
+    // : Aktualisiert die Anzeige fuer das aktuelle Gesamtgewicht des Rucksacks.
     public void updateTotalWeight(double total)
     {
         this.gesamtGewichtLabel.setText("Gesamtgewicht " + total + " kg");
