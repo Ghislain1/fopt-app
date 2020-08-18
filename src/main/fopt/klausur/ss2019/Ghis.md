@@ -298,21 +298,11 @@ Bei parallen TCP Server ist ClientY schneller als ClientX, da jeden gesende Requ
              Append append = (Append) Naming.lookup(url);
             // code using counter Object...
         }
-        catch (MalformedURLException e)
+        catch (MalformedURLException | RemoteException |NotBoundException e)
         {
 
             e.printStackTrace();
-        }
-        catch (RemoteException e1)
-        {
-
-            e1.printStackTrace();
-        }
-        catch (NotBoundException e2)
-        {
-
-            e2.printStackTrace();
-        }
+        }     
 
     }
 ```
@@ -331,15 +321,12 @@ Bei parallen TCP Server ist ClientY schneller als ClientX, da jeden gesende Requ
             //TODO: Beschreiben Sie die Method rebind() macht!!
             Naming.rebind("AppendName", append);
         }
-        catch (RemoteException e)
+        catch (RemoteException |MalformedURLException e)
         {
 
             e.printStackTrace();
         }
-        catch (MalformedURLException e)
-        {
-            e.printStackTrace();
-        }
+        
 
     }
 ```
