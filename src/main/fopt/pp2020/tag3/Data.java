@@ -1,6 +1,9 @@
 package fopt.pp2020.tag3;
 
-public class Data
+import java.io.Serializable;
+
+//TODO@GhZe:  1. Warum  sollen wir Serializable implementieren?
+public class Data implements Serializable
 {
     private int value;
 
@@ -20,3 +23,5 @@ public class Data
     }
 
 }
+// 1. Laut Buch RMI mit Wertuebergabe soll die Datenstuktur serialisieren
+// lassen.

@@ -3,6 +3,7 @@ package fopt.pp2020.tag3;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+//TODO@GhZe: warum e ein extra interface, Aufgabensetllung spricht von Kasse Demo
 public class Demo extends UnicastRemoteObject implements IDemo
 {
     /**
