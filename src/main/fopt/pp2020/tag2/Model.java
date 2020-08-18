@@ -83,10 +83,8 @@ public class Model
         {
             if (sum + gewicht <= this.getMaxWeight())
             {
-
                 this.sum = sum + gewicht;
             }
-
         }
         else
         {

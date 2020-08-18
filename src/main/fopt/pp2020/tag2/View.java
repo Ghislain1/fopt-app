@@ -82,7 +82,7 @@ public class View
     {
         for (CheckBox cb : checkBoxLinkedList)
         {
-            if (enabledItems.contains(cb.getId()))
+            if (!cb.isSelected() && enabledItems.contains(cb.getId()))
             {
                 cb.setDisable(true);
             }
