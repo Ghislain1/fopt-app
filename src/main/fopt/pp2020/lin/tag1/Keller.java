@@ -1,9 +1,10 @@
 package fopt.pp2020.lin.tag1;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Keller {
-    ArrayList elements;
+    List elements;
     int length;
 
     public Keller() {
