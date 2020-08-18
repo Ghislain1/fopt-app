@@ -51,6 +51,8 @@ module fopt
 
     exports fopt.klausur.lin.aufgabe7;
 
+    exports fopt.pp2020.lin.tag2;
+
     exports fopt.buch.abschn55;
 
     exports fopt.pp2020.tag2;
