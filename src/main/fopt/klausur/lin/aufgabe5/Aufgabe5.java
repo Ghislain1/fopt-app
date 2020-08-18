@@ -1,7 +1,6 @@
 package fopt.klausur.lin.aufgabe5;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -14,8 +13,6 @@ public class Aufgabe5 extends Application
     public static void main(String[] args)
     {
         launch(args);
-
-
     }
 
     @Override
