@@ -1,31 +1,28 @@
 package fopt.pp2020.tag1;
 
+import java.util.LinkedList;
+
 public class DeutscheAmpel implements Ampel
 {
 
-    // Gruen oder Rot
-    private String ampel;
+    private LinkedList<Thread> threadLinkedList;
 
-    // Repraesentiert die Anzahl der wartenden Auto an der Ampel
-    private int numberOfWaitingCars;
-
-    private int nextWaitingNumber;
-
-    private int nextRollingNumber;
+    private boolean istRot;
 
     public DeutscheAmpel()
     {
-        this.ampel = Ampel.Gruen;
-        this.numberOfWaitingCars = 0;
-        this.nextWaitingNumber = 0;
-        this.nextRollingNumber = 0;
+
+        this.threadLinkedList = new LinkedList<>();
+        this.istRot = true;
+
     }
 
     // sync weil Aenderung des Zustands durch unterchiedliche Threads
     @Override
     public synchronized void schalteRot()
     {
-        this.ampel = Ampel.Rot;
+
+        this.istRot = true;
 
     }
 
@@ -33,7 +30,7 @@ public class DeutscheAmpel implements Ampel
     @Override
     public synchronized void schalteGruen()
     {
-        this.ampel = Ampel.Gruen;
+        this.istRot = false;
         // Denn mehrere Threads koennen While-Wait-Schleife/ verlassen
         this.notifyAll();
 
@@ -42,19 +39,20 @@ public class DeutscheAmpel implements Ampel
     @Override
     public synchronized void passieren()
     {
-        int myNumber = this.nextWaitingNumber;
 
-        // Bereitstellung der naechste Wartenummer
-        this.nextWaitingNumber++;
-        this.numberOfWaitingCars++;
+        Thread currentThread = Thread.currentThread();
+        // Append to the list
+        this.threadLinkedList.add(currentThread);
+
         // Frage: Wann soll ein Auto warten?
         // 1. wenn Ampel ist rot oder
         // 2. Wartenummer und Anfahrende Nummer sind nicht identisch
-        while (this.ampel.equals(Ampel.Rot) || myNumber != this.nextRollingNumber)
+
+        while (this.istRot || this.threadLinkedList.get(0) != currentThread)
         {
             try
             {
-                System.out.println(Thread.currentThread().getName() + " DEUTSCH- WAITING Nr . " + myNumber);
+                System.out.println(Thread.currentThread().getName() + " DEUTSCH-WAITING  " + this.wartendeFahrzeuge());
                 this.wait();
             }
             catch (InterruptedException e)
@@ -62,10 +60,9 @@ public class DeutscheAmpel implements Ampel
                 e.printStackTrace();
             }
         }
-        System.out.println(Thread.currentThread().getName() + " DEUTSCH- ROOLING Nr . " + myNumber);
+        System.out.println(Thread.currentThread().getName() + " DEUTSCH-ROOLING  ");
 
-        this.numberOfWaitingCars--;
-        this.nextRollingNumber++;
+        this.threadLinkedList.remove(currentThread);
 
         // Benachrichtigen andere Autos
         this.notifyAll();
@@ -76,7 +73,7 @@ public class DeutscheAmpel implements Ampel
     @Override
     public synchronized int wartendeFahrzeuge()
     {
-        return this.numberOfWaitingCars;
+        return this.threadLinkedList.size();
     }
 
 }

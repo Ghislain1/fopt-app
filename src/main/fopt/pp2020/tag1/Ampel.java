@@ -2,9 +2,6 @@ package fopt.pp2020.tag1;
 
 public interface Ampel
 {
-    public static String Gruen = "Gruen";
-
-    public static String Rot = "Rot";
 
     public void schalteRot();
 

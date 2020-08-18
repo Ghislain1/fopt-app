@@ -2,9 +2,9 @@ package fopt.klausur.ghis.ss2019;
 
 public class WaitTicksThread extends Thread
 {
-    private LogicalTime logicalTime;
+    private LogicalTime2 logicalTime;
 
-    public WaitTicksThread(String name, LogicalTime logicalTime)
+    public WaitTicksThread(String name, LogicalTime2 logicalTime)
     {
         this.setName(name);
         this.logicalTime = logicalTime;
@@ -16,7 +16,7 @@ public class WaitTicksThread extends Thread
     {
 
         // Siehe Aufgabe Paramter n = 50;
-        this.logicalTime.waitTicks(LogicalTime.MAX_NUMBER_OF_TICKS_LONG);
+        this.logicalTime.waitTicks(50);
 
     }
 }

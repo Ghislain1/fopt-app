@@ -6,7 +6,7 @@ public class LogicalTimeDemo
     public static void main(String[] args)
     {
         // gemeinsam genutzter Objekt anlegen
-        LogicalTime logicalTime = new LogicalTime();
+        LogicalTime2 logicalTime = new LogicalTime2();
 
         // for tick()-Methode
         TickThread tickThread = new TickThread("tickThread", logicalTime);
