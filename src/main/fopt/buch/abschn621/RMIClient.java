@@ -5,8 +5,8 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-//Hier wird client  ausprogrammiert, ein Beispiel für die Aufrufen der Methoden reset() un increment()
-//1. Wie lautet der Syntax der Paramterübergabe bei Lookup() Method aus Naming Klasse?
+//Hier wird client  ausprogrammiert, ein Beispiel fuer die Aufrufen der Methoden reset() un increment()
+//1. Wie lautet der Syntax der Paramteruebergabe bei Lookup() Methode aus Naming Klasse?
 public class RMIClient
 {
 
@@ -31,15 +31,15 @@ public class RMIClient
 
             e.printStackTrace();
         }
-        catch (RemoteException e)
+        catch (RemoteException e1)
         {
 
-            e.printStackTrace();
+            e1.printStackTrace();
         }
-        catch (NotBoundException e)
+        catch (NotBoundException e2)
         {
 
-            e.printStackTrace();
+            e2.printStackTrace();
         }
 
     }

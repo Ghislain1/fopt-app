@@ -57,4 +57,6 @@ module fopt
 
     exports fopt.pp2020.tag2;
 
+    exports fopt.buch.abschn64;
+
 }

@@ -8,15 +8,8 @@ public class Presenter
 
     public void check(String name, boolean selected)
     {
-        if (!selected)
-        {
-            return;
-        }
-        else
-        {
-            this.model.setSelected(name, selected);
 
-        }
+        this.model.setSelected(name, selected);
 
         this.view.updateTotalWeight(this.model.getSumOfUsedWeights());
         this.view.updateEnabledItems(this.model.getEnabledItems());

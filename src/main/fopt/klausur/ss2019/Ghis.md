@@ -281,8 +281,68 @@ receive
 ```
 Bei parallen TCP Server ist ClientY schneller als ClientX, da jeden gesende Request sindsofort in einer Thread ausgelagernt und bearbetet, somit ist die Antwortszeit kurzer. Dadurch ist er schneller.
 
-# Aufagbe 8: RMI - noch mal lesen
-   
+# Aufagbe 8: RMI -Stub und Skeleton
+
+## Stub
+```java
+  public static void main(String[] args)
+    {
+        // rmi://<Rechnername>/<Objektname>
+        String rechnername = "localhost";
+        String objektname = "AppendName";
+        String url = "rmi://" + rechnername + "/" + objektname;
+
+        try
+        {
+             //TODO: Beschreiben Sie die Method lookup macht!!
+             Append append = (Append) Naming.lookup(url);
+            // code using counter Object...
+        }
+        catch (MalformedURLException e)
+        {
+
+            e.printStackTrace();
+        }
+        catch (RemoteException e1)
+        {
+
+            e1.printStackTrace();
+        }
+        catch (NotBoundException e2)
+        {
+
+            e2.printStackTrace();
+        }
+
+    }
+```
+
+## Skeleton(Serverseitig)
+```Java
+    public static void main(String[] args)
+    {
+
+        // Registry
+        try
+        {
+            // RemoteOject
+            Append append = new AppendImpl();
+            
+            //TODO: Beschreiben Sie die Method rebind() macht!!
+            Naming.rebind("AppendName", append);
+        }
+        catch (RemoteException e)
+        {
+
+            e.printStackTrace();
+        }
+        catch (MalformedURLException e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+```
    
    
    
