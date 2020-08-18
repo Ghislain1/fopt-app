@@ -31,7 +31,7 @@ public class View
     }
 
     // : Initialisierung der View mit den Bezeichnungen und Gewichten aller
-    // Gegenstände sowie dem maximal zulässigen Gesamtgewicht.
+    // Gegenstaende sowie dem maximal zulaessigen Gesamtgewicht.
     public void init(List<String> names, List<Double> weights, double maxWeight)
     {
 
@@ -75,9 +75,9 @@ public class View
         this.gesamtGewichtLabel.setText("Gesamtgewicht " + total + " kg");
     }
 
-    // Aktualisiert die Wählbarkeit (Enabled / Disabled) der
-    // CheckBoxes. Alle Gegenstände, deren Bezeichnungen als Parameter
-    // enabledItems übergeben werden, sollen
+    // Aktualisiert die Waehlbarkeit (Enabled / Disabled) der
+    // CheckBoxes. Alle Gegenstaende, deren Bezeichnungen als Parameter
+    // enabledItems uebergeben werden, sollen
     public void updateEnabledItems(List<String> enabledItems)
     {
         for (CheckBox cb : checkBoxLinkedList)

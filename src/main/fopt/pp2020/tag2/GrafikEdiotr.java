@@ -1,7 +1,6 @@
 package fopt.pp2020.tag2;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javafx.application.Application;
@@ -32,8 +31,6 @@ public class GrafikEdiotr extends Application
 
     Pane grafikPane;
 
-    List<Line> lineList;
-
     private Circle circle;
 
     private Line line;
@@ -46,7 +43,7 @@ public class GrafikEdiotr extends Application
 
     private List<Rectangle> rechtecke;
 
-    private HashMap<Line, List<Line>> lineMap;
+    // private HashMap<Line, List<Line>> lineMap;
 
     String selectedRadioButtonText;
 
@@ -94,11 +91,11 @@ public class GrafikEdiotr extends Application
         // Properties setzen
         lineRadioButton.setSelected(true);
         this.selectedRadioButtonText = "Linie";
-        this.lineList = new ArrayList<>();
+
         this.linien = new ArrayList<>();
         this.kreise = new ArrayList<>();
         this.rechtecke = new ArrayList<>();
-        this.lineMap = new HashMap<>();
+
         // Bereich hineingehen vermeidem
         clipChildren(this.grafikPane, this.grafikPane.getWidth(), this.grafikPane.getHeight());
 
@@ -122,6 +119,21 @@ public class GrafikEdiotr extends Application
             // Mouseposition relativ zur Quelle de Ereignisses
             this.startX = e.getX();
             this.startY = e.getY();
+            if (this.selectedRadioButtonText.equals("Linie"))
+            {
+                this.line = new Line(this.startX, this.startY, this.startX, this.startY);
+                this.grafikPane.getChildren().add(this.line);
+
+            }
+            else if (this.selectedRadioButtonText.equals("Kreis"))
+            {
+                this.circle = new Circle(this.startX, this.startY, 0);
+                this.grafikPane.getChildren().add(this.circle);
+            }
+            else if (this.selectedRadioButtonText.equals("Rechtteck"))
+            {
+
+            }
 
         });
         grafikPane.setOnMouseReleased(e ->
@@ -131,11 +143,38 @@ public class GrafikEdiotr extends Application
             double lastPositionY = e.getY();
             if (this.selectedRadioButtonText.equals("Linie"))
             {
-                this.drawLine(lastPositionX, lastPositionY, Color.BLACK, 2);
+                if (this.startX == lastPositionX && this.startY == lastPositionY)
+                {
+                    this.grafikPane.getChildren().remove(line);
+                }
+                else
+                {
+
+                    this.line.setStroke(Color.BLACK);
+                    // Duennere/dickere Linie
+                    this.line.setStrokeWidth(2);
+
+                    this.linien.add(this.line);
+                }
             }
             else if (this.selectedRadioButtonText.equals("Kreis"))
             {
-                drawCircle(lastPositionX, lastPositionY, Color.BLACK, 2);
+
+                if (this.startX == lastPositionX && this.startY == lastPositionY)
+                {
+                    this.grafikPane.getChildren().remove(circle);
+                }
+                else
+                {
+
+                    this.circle.setStroke(Color.BLACK);
+                    // Duennere/dickere Linie
+                    this.circle.setStrokeWidth(2);
+
+                    this.kreise.add(this.circle);
+                }
+
+                ;
 
             }
             else if (this.selectedRadioButtonText.equals("Rechtteck"))
@@ -153,11 +192,11 @@ public class GrafikEdiotr extends Application
             double lastPositionY = e.getY();
             if (this.selectedRadioButtonText.equals("Linie"))
             {
-                this.drawLine(lastPositionX, lastPositionY, Color.GRAY, 0.5);
+                this.drawLine(lastPositionX, lastPositionY);
             }
             else if (this.selectedRadioButtonText.equals("Kreis"))
             {
-                drawCircle(lastPositionX, lastPositionY, Color.GRAY, 0.5);
+                drawCircle(lastPositionX, lastPositionY);
             }
             else if (this.selectedRadioButtonText.equals("Rechtteck"))
             {
@@ -189,7 +228,7 @@ public class GrafikEdiotr extends Application
             this.grafikPane.getChildren().clear();
             this.line = null;
             this.kreise.clear();
-            this.lineMap.keySet().clear();
+            this.linien.clear();
             this.rechtecke.clear();
 
             ;
@@ -202,32 +241,18 @@ public class GrafikEdiotr extends Application
 
     private TextArea textArea;
 
-    private void drawCircle(double endX, double endY, Color color, double strokeWidth)
+    private void drawCircle(double endX, double endY)
     {
         // Pythagores
         double a = Math.pow(endX - this.startX, 2) + Math.pow(endY - this.startY, 2);
         double radius = Math.sqrt(a);
 
-        Circle newCircle = new Circle(this.startX, this.startY, radius);
-        newCircle.setStroke(color);
-        newCircle.setStrokeWidth(strokeWidth);
-        newCircle.setFill(null); // Nicht ausfuellen
-        this.grafikPane.getChildren().add(newCircle);
+        circle.setStroke(Color.GRAY);
+        circle.setStrokeWidth(0.5);
+        circle.setFill(null); // Nicht ausfuellen
 
-        // Condition: Brauch Verbesserung
-        if (strokeWidth == 0.5 && color.equals(Color.GRAY))
-        {
-            if (this.circle != null)
-            {
-                this.grafikPane.getChildren().remove(circle);
-            }
-            // Letzte Merken!!
-            this.circle = newCircle;
-        }
-        else
-        {
-            this.kreise.add(newCircle);
-        }
+        this.circle.setRadius(radius);
+        // this.grafikPane.getChildren().add(circle);
 
     }
 
@@ -269,17 +294,18 @@ public class GrafikEdiotr extends Application
 
     private void update()
     {
-        int lineAnzahl = this.lineMap.keySet().size();
+        int linienAnzahl = this.linien.size();
+
         int kreiseAnzahl = this.kreise.size();
         int rechtteckAnzahl = this.rechtecke.size();
-        String textLabel = "Linien:" + lineAnzahl + ", " + "Kreise:" + kreiseAnzahl + ", " + "Rechttecke:" + rechtteckAnzahl;
+        String textLabel = "Linien:" + linienAnzahl + ", " + "Kreise:" + kreiseAnzahl + ", " + "Rechttecke:" + rechtteckAnzahl;
         this.labelProtocol.setText(textLabel);
         // this.grafikPane.requestFocus();
 
         if (this.selectedRadioButtonText.equals("Linie"))
         {
             // TODO@GHze: Verbesserung
-            this.textArea.appendText(this.lineMap.keySet().toArray()[0].toString() + "\n");
+            this.textArea.appendText(this.line + "\n");
         }
         else if (this.selectedRadioButtonText.equals("Kreis"))
         {
@@ -292,7 +318,7 @@ public class GrafikEdiotr extends Application
             {
                 return;
             }
-            // TODO@GHze: Nochmal lesen vor Klausur--> Method appendText
+            // TODO@GHze: Method appendText --Nochmal lesen vor Klausur
             this.textArea.appendText(this.rechtecke.get(rechtteckAnzahl - 1).toString() + "\n");
         }
 
@@ -316,41 +342,12 @@ public class GrafikEdiotr extends Application
         });
     }
 
-    private void drawLine(double endX, double endY, Color color, double strokeWidth)
+    private void drawLine(double endX, double endY)
     {
-        // Line erzeugen
-        this.line = new Line(this.startX, this.startY, endX, endY);
-        // Farbe der Linie
-        this.line.setStroke(color);
-        // Duennere/dickere Linie
-        this.line.setStrokeWidth(strokeWidth);
 
-        // Aliasing
-        this.line.setSmooth(true);
         // Linie zeichen lassen
-        this.grafikPane.getChildren().add(line);
-
-        // Damit andere Punkt fest bleibt (Gummibandeffekt)
-        this.startX = endX;
-        this.startY = endY;
-
-        // Append line
-        lineList.add(this.line);
-
-        // NEDD: Verbesserung
-        if (strokeWidth == 2 && color.equals(Color.BLACK))
-        {
-            // Update all Lines
-            for (Line li : lineList)
-            {
-                li.setStroke(color);
-                // Duennere/dickere Linie
-                li.setStrokeWidth(strokeWidth);
-            }
-            this.lineMap.put(this.line, lineList);
-            this.lineList.clear();
-
-        }
+        this.line.setEndX(endX);
+        this.line.setEndY(endY);
 
     }
 
