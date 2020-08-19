@@ -1,4 +1,4 @@
-package fopt.pp2020.lin.tag3;
+package fopt.pp2020.lin.tag3.aufgabe1;
 
 import java.net.InetAddress;
 import java.util.Random;
