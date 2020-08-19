@@ -17,8 +17,6 @@ module fopt
     // Exports von Packages von fopt-app
     exports pp.eventset;
 
-    exports fopt.demo.kap4;
-
     exports fopt.buch.abschn2;
 
     exports fopt.buch.abschn421;
