@@ -1,10 +1,9 @@
 package fopt.pp2020.tag3;
 
-public class UDPServer
+public class DynamicUDPServer
 {
     public static void main(String[] args)
     {
-
         // create socket
         try (UDPSocket udpSocket = new UDPSocket(4100))
         {
@@ -13,15 +12,7 @@ public class UDPServer
             // execute client requests
             while (true)
             {
-                // receive request
-                String request = udpSocket.receive(20);
-
-                Thread.sleep(1000 * 5); // 5 seconden
-
-                // generate answer
-                String answer = request + " " + udpSocket.getSenderAddress() + ":" + udpSocket.getSenderPort();
-                // send answer
-                udpSocket.reply(answer);
+                new UDPSlave(udpSocket);
             }
         }
         catch (Exception e)
