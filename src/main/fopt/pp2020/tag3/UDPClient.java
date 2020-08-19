@@ -10,8 +10,8 @@ public class UDPClient
     {
         int serverPort = 4100;
         String serverAddrString = "localhost";
-        int maxCount = 50;
-        System.out.println(" ServerName= " + serverAddrString + "Server Port " + serverPort);
+
+        System.out.println(" ServerName= " + serverAddrString + " Server Port " + serverPort);
         // create datagram socket
         try (UDPSocket udpSocket = new UDPSocket())
         {
@@ -39,8 +39,6 @@ public class UDPClient
             long stopTime = System.currentTimeMillis();
             long duration = stopTime - startTime;
             System.out.println("Gesamtzeit = " + duration + " msecs");
-
-            System.out.println("Durchschnittszeit = " + ((duration) / (float) maxCount) + " msecs");
 
         }
         catch (Exception e)
