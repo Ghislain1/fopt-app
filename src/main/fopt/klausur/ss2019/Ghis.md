@@ -13,60 +13,40 @@
 
 *  a) Die angebene LÃ¶sung funktioniert NICHT wie vorgesehen: Der Wert von ticks kann geÃ¤ndert werden, obwohl die tick()-Method nicht aufgerufen ist: Angenommen ein Thread t die Methode-waitTicks mit 5, dann wartet er in der While-Wait-schleife und ein andere Thread s ruft waitTickts mit 0, Nach Aufrufende der tick() wird alle Threads geweckt und muss  die methode waitTicks verlassen, was den Aufgabenstellung nicht eintspricht.
 
-* b) LÃ¶sung
+* b) LogicalTime-Klasse
 
-```java
-package fopt.klausur.ghis.ss2019;
+```java 
 
 public class LogicalTime
 {
-    public static int MAX_NUMBER_OF_TICKS_LONG = 10;
+       private int ticks;
 
-    public static int MAX_NUMBER_OF_TICKS_SMALL = 5;
+    private LinkedList<Thread> threadLinkedList;
 
-    private int nextWaitingNumber;
-
-    private int nextPassingNumber;
-
-    private int ticks;
-
-    public LogicalTime()
+    public LogicalTime2()
     {
-        this.nextWaitingNumber = 0;
-        this.nextPassingNumber = 0;
-        this.ticks = 1; // NOT Zero , because the first enter thread should wait
+        this.threadLinkedList = new LinkedList<>();
+        this.ticks = 0; // NOT Zero , because the first enter thread should wait
     }
 
     public synchronized void tick()
     {
-
-        if (this.ticks == 0)
-        {
-
-            this.notifyAll();
-
-        }
-        else
-        {
-            this.ticks--;
-        }
-
+        this.ticks--;
+        this.notifyAll();
     }
 
     public synchronized void waitTicks(int waitingTicks)
     {
-        // Nummber ziehen
-        int myNumber = this.nextWaitingNumber;
+        // Einfuegen in der Wartenschlange
+        this.threadLinkedList.add(Thread.currentThread());
 
-        // Wartenummer bereitstellen
-        this.nextWaitingNumber++;
-
-        while (this.ticks > 0 || myNumber != this.nextPassingNumber)
+        // Wenn das erste Element in der Warteschlange nicht das Aktual ist dann
+        // warten oder ticks noch nicht null erreicht hat --> Dann warten
+        while (this.ticks == 0 || this.threadLinkedList.get(0) != Thread.currentThread())
         {
             try
             {
-                
-                this.wait();
+              this.wait();
 
             }
             catch (Exception e)
@@ -74,10 +54,17 @@ public class LogicalTime
                 e.printStackTrace();
             }
         }
+
+        // Raus von der Warteschlage
+        this.threadLinkedList.remove(Thread.currentThread());
+
+        // The Ticks bereitstellen
         this.ticks = waitingTicks;
-        this.nextPassingNumber++;
+
+        //
         this.notifyAll();
-  
+        System.out.println(Thread.currentThread().getName() + " ****   PASSING   *** ");
+
     }
 
 }

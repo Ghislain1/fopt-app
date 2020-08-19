@@ -6,6 +6,7 @@ public class LogicalTime2
 {
     private int ticks;
 
+    // To Store all thread for ticks
     private LinkedList<Thread> threadLinkedList;
 
     public LogicalTime2()
