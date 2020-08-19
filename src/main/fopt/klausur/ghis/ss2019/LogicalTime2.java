@@ -12,7 +12,7 @@ public class LogicalTime2
     public LogicalTime2()
     {
         this.threadLinkedList = new LinkedList<>();
-        this.ticks = 0; // NOT Zero , because the first enter thread should wait
+        this.ticks = 0;  
     }
 
     public synchronized void tick()
