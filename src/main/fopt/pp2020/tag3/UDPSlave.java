@@ -1,17 +1,19 @@
 package fopt.pp2020.tag3;
 
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+
 public class UDPSlave extends Thread
 {
-    private final UDPSocket udpSocket;
+    private final DatagramSocket datagramSocket;
 
-    private final String request;
+    private final DatagramPacket datagramPacket;
 
-    public UDPSlave(UDPSocket udpSocket, String request)
+    public UDPSlave(DatagramSocket datagramSocket, DatagramPacket datagramPacket, int length)
     {
-        this.udpSocket = udpSocket;
-        this.request = request;
+        this.datagramSocket = datagramSocket;
+        this.datagramPacket = datagramPacket;
         this.start();
-
     }
 
     @Override
@@ -25,9 +27,12 @@ public class UDPSlave extends Thread
             Thread.sleep(1000 * 5);
 
             // generate answer
-            String answer = request + " " + udpSocket.getSenderAddress() + ":" + udpSocket.getSenderPort();
+            String answer = "Hallo" + " " + this.datagramPacket.getAddress() + ":" + this.datagramPacket.getPort();
             // send answer
-            udpSocket.reply(answer);
+
+            DatagramPacket p = new DatagramPacket(answer.getBytes(), answer.getBytes().length, this.datagramPacket.getAddress(), this.datagramPacket.getPort());
+            System.out.println(p.getLength());
+            this.datagramSocket.send(p);
         }
         catch (Exception e)
         {

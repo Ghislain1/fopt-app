@@ -26,7 +26,7 @@ public class UDPClient
             // receive reply
             try
             {
-                reply = udpSocket.receive(20);
+                reply = udpSocket.receive(500);
                 System.out.println(reply);
             }
             catch (Exception e)
@@ -39,6 +39,7 @@ public class UDPClient
             long stopTime = System.currentTimeMillis();
             long duration = stopTime - startTime;
             System.out.println("Gesamtzeit = " + duration + " msecs");
+            Thread.sleep(10000);
 
         }
         catch (Exception e)
