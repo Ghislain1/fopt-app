@@ -12,7 +12,11 @@ public class DynamicUDPServer
             // execute client requests
             while (true)
             {
-                new UDPSlave(udpSocket);
+                // receive request
+                String request = udpSocket.receive(20);
+
+                // Request auslagern
+                new UDPSlave(udpSocket, request);
             }
         }
         catch (Exception e)

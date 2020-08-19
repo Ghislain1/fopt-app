@@ -4,19 +4,22 @@ public class UDPSlave extends Thread
 {
     private final UDPSocket udpSocket;
 
-    public UDPSlave(UDPSocket udpSocket)
+    private final String request;
+
+    public UDPSlave(UDPSocket udpSocket, String request)
     {
         this.udpSocket = udpSocket;
+        this.request = request;
         this.start();
+
     }
 
     @Override
     public void run()
     {
-
+        System.out.println(Thread.currentThread().getName() + " RUNNING ");
         try
-        { // receive request
-            String request = udpSocket.receive(20);
+        {
 
             // FAKE WORK
             Thread.sleep(1000 * 5);
@@ -28,7 +31,7 @@ public class UDPSlave extends Thread
         }
         catch (Exception e)
         {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 
