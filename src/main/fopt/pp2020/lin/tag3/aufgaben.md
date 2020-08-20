@@ -23,7 +23,11 @@ f) Wie können Sie das Problem komplett lösen? Hinweis: Denken Sie an Paralleli
 
 Aufgabe: Übertragung serialisierter Objekte über UDP und TCP
 
-Im Lehrbuch gab es die Klassen UDPSocket und TCPSocket zum Übertragen von Strings mit UDP bzw. TCP. In einer Übungsaufgabe wurde gezeigt, wie ints, doubles und booleans mit TCP übertragen werden können. Schreiben Sie nun die Klassen UDPSocketAdvanced und TCPSocketAdvanced zum Senden und Empfangen von Strings, ints, doubles und booleans sowie serialisierter Java-Objekte über UDP bzw. TCP und probieren Sie Ihre Klassen anhand je einer kleinen Client-Server-Anwendung aus!
+Im Lehrbuch gab es die Klassen UDPSocket und TCPSocket zum Übertragen von Strings mit UDP bzw. TCP. 
+In einer Übungsaufgabe wurde gezeigt, wie ints, doubles und booleans mit TCP übertragen werden können. 
+Schreiben Sie nun die Klassen UDPSocketAdvanced und TCPSocketAdvanced zum Senden und Empfangen von Strings, 
+ints, doubles und booleans sowie serialisierter Java-Objekte über UDP bzw. 
+TCP und probieren Sie Ihre Klassen anhand je einer kleinen Client-Server-Anwendung aus!
 
 
 
