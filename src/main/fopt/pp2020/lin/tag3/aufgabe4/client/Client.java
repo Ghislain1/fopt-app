@@ -1,10 +1,14 @@
 package fopt.pp2020.lin.tag3.aufgabe4.client;
 
+
+import fopt.pp2020.lin.tag3.aufgabe4.interfaces.IAdder;
+import fopt.pp2020.lin.tag3.aufgabe4.interfaces.IDivider;
+import fopt.pp2020.lin.tag3.aufgabe4.interfaces.IMultiplier;
+import fopt.pp2020.lin.tag3.aufgabe4.interfaces.ISubstractor;
+
 import java.rmi.Naming;
 import java.rmi.Remote;
 import java.util.Scanner;
-
-import rmi.interfaces.*;
 
 public class Client
 {

@@ -1,10 +1,12 @@
 package fopt.pp2020.lin.tag3.aufgabe4.server;
 
+import fopt.pp2020.lin.tag3.aufgabe4.logic.Calculator;
+
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import rmi.logic.Calculator;
+
 
 public class ServerEquals
 {

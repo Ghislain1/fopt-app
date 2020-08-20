@@ -49,6 +49,12 @@ module fopt
 
     exports fopt.klausur.lin.aufgabe7;
 
+    // 4 packages for rmi exercises
+    exports fopt.pp2020.lin.tag3.aufgabe4.client;
+    exports fopt.pp2020.lin.tag3.aufgabe4.interfaces;
+    exports fopt.pp2020.lin.tag3.aufgabe4.logic;
+    exports fopt.pp2020.lin.tag3.aufgabe4.server;
+
     exports fopt.pp2020.lin.tag2;
 
     exports fopt.buch.abschn55;

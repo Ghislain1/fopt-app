@@ -1,10 +1,10 @@
 package fopt.pp2020.lin.tag3.aufgabe4.client;
 
+import fopt.pp2020.lin.tag3.aufgabe4.interfaces.IMultiplier;
+
 import java.rmi.Naming;
 import java.rmi.Remote;
 
-import rmi.interfaces.IMultiplier;
-import rmi.logic.Calculator;
 
 public class ClientMultiply
 {
@@ -20,7 +20,7 @@ public class ClientMultiply
                 {
                     for(int b = 1; b <= 10; b++)
                     {
-                        printResult("Performing multiply on " + a + " and " + b + "!", ((IMultiplier) onlineCalculator).multiply(a, b));                        
+                        printResult("Performing multiply on " + a + " and " + b + "!", ((IMultiplier) onlineCalculator).multiply(a, b));
                     }
                 }
             }
