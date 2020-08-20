@@ -3,13 +3,10 @@ package fopt.klausur.ghis.ss2019;
 public class LogicalTimeDemo
 {
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     {
         // gemeinsam genutzter Objekt anlegen
-        LogicalTime2 logicalTime = new LogicalTime2();
-
-        // for tick()-Methode
-        TickThread tickThread = new TickThread("tickThread", logicalTime);
+        LogicalTime logicalTime = new LogicalTime();
 
         // For waitTicks() Methods
         WaitTicksThread t2 = new WaitTicksThread("WaitTicksThread", logicalTime);
@@ -17,6 +14,11 @@ public class LogicalTimeDemo
 
         // Ziel Thread t1 oder t1 soll wieder aufgewacht werden nach Paramter n,
         // NICHT jedes Mal.
+
+        Thread.sleep(10000);
+
+        // for tick()-Methode
+        TickThread tickThread = new TickThread("tickThread", logicalTime);
         try
         {
             t1.join();

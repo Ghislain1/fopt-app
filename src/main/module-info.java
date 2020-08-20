@@ -9,6 +9,8 @@ module fopt
 
     requires javafx.base;
 
+    requires servlet.api;
+
     /*
      * requires transitive org.apiguardian.api; requires transitive
      * org.junit.platform.commons; requires transitive org.opentest4j;
@@ -51,8 +53,11 @@ module fopt
 
     // 4 packages for rmi exercises
     exports fopt.pp2020.lin.tag3.aufgabe4.client;
+
     exports fopt.pp2020.lin.tag3.aufgabe4.interfaces;
+
     exports fopt.pp2020.lin.tag3.aufgabe4.logic;
+
     exports fopt.pp2020.lin.tag3.aufgabe4.server;
 
     exports fopt.pp2020.lin.tag2;
