@@ -2,24 +2,35 @@ package fopt.klausur.lin.aufgabe2;
 
 public class LogicalTime {
 
-    private int ticks;
+    private int overallTicks = 0;
 
-    public synchronized void tick(){
-        System.out.println(Thread.currentThread().getName() + " in tick()");
+    public synchronized void tick()
+    {
+        overallTicks++;
+        System.out.println(Thread.currentThread().getName() + "-->" + overallTicks);
         notifyAll();
-
     }
 
-    public synchronized void waitTicks(int waitingTicks){
-        this.ticks= waitingTicks;
-        while (ticks > 0){
-            try {
+    public synchronized void waitTicks(int waitingTicks)
+    {
+        int startTicks = overallTicks;
+
+        int differ = overallTicks - startTicks;
+
+        while(overallTicks - startTicks < waitingTicks)
+        {
+            try
+            {
                 wait();
-            } catch (InterruptedException e) {
+                System.out.println(Thread.currentThread().getName() + "-->" + differ);
+                System.out.println("startTicks" + "-->" + startTicks);
+                System.out.println("overallTicks" + "-->" + overallTicks);
+            }
+            catch(InterruptedException e)
+            {
                 e.printStackTrace();
             }
-            ticks--;
-            System.out.println(Thread.currentThread().getName() + "---" + ticks);
         }
+        System.out.println(Thread.currentThread().getName() + "++++++" + differ);
     }
 }

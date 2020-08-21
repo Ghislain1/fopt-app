@@ -1,7 +1,6 @@
 package fopt.klausur.lin.aufgabe2;
 
 
-
 public class MarttinLogicalTimeDemo
 {
     public static void main(String[] args)
@@ -16,14 +15,6 @@ public class MarttinLogicalTimeDemo
             });
             t1.setName("waitTicks()-Thread " + i);
             t1.start();
-        }
-
-        try
-        {
-            Thread.sleep(200);
-        }
-        catch (Exception e)
-        {
         }
 
         new Thread(() ->
