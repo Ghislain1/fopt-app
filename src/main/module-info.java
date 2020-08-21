@@ -9,8 +9,6 @@ module fopt
 
     requires javafx.base;
 
-    requires servlet.api;
-
     /*
      * requires transitive org.apiguardian.api; requires transitive
      * org.junit.platform.commons; requires transitive org.opentest4j;
@@ -74,5 +72,9 @@ module fopt
     // Demonstraktion von Call-By-Value in RMI -> Serialization
     // Effekt von synchronized bei RMI-Method
     exports fopt.video.rmi.sleep;
+
+    // MVP Grundstruktr von Video Vorlesung
+    // Typysche Methode in View, Presenter
+    exports fopt.video.gbo.login;
 
 }
