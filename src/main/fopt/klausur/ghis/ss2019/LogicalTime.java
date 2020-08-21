@@ -1,40 +1,44 @@
 package fopt.klausur.ghis.ss2019;
 
+import java.util.LinkedList;
+
 public class LogicalTime
 {
-    private int nextWaitingNumber;
+    private int overallTicks;
 
-    private int nextPassingNumber;
-
-    private int ticks;
+    private LinkedList<Thread> runningThreadList;
 
     public LogicalTime()
     {
-        this.nextWaitingNumber = 0;
-        this.nextPassingNumber = 0;
-        this.ticks = 1; // NOT Zero , because the first enter thread should wait
+
+        this.overallTicks = 0;
+        this.runningThreadList = new LinkedList<Thread>();
     }
 
     public synchronized void tick()
     {
-        this.ticks--;
+        this.overallTicks++;
         this.notifyAll();
+        System.out.println(this.overallTicks);
+
+    }
+
+    public synchronized boolean hasThreadInWaiting()
+    {
+        return !this.runningThreadList.isEmpty();
     }
 
     public synchronized void waitTicks(int waitingTicks)
     {
-        // Nummber ziehen
-        int myNumber = this.nextWaitingNumber;
+        // Append to list
+        this.runningThreadList.add(Thread.currentThread());
+        int ticks = this.overallTicks + waitingTicks;
 
-        // Wartenummer bereitstellen
-        this.nextWaitingNumber++;
-
-        while (this.ticks > 0 || myNumber != this.nextPassingNumber)
+        while (ticks - this.overallTicks > 0)
         {
             try
             {
-                // TODO@GhZe nochmal vor klausur
-                System.out.println(Thread.currentThread().getName() + " *** WAITING  *** : ");
+                System.out.println(Thread.currentThread().getName() + " *** WAITING  ====>  " + waitingTicks);
                 this.wait();
 
             }
@@ -43,9 +47,7 @@ public class LogicalTime
                 e.printStackTrace();
             }
         }
-        this.ticks = waitingTicks;
-        this.nextPassingNumber++;
-        this.notifyAll();
+        this.runningThreadList.remove(Thread.currentThread());
         System.out.println(Thread.currentThread().getName() + " ****   PASSING   *** ");
 
     }

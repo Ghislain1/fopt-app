@@ -2,9 +2,9 @@ package fopt.klausur.ghis.ss2019;
 
 public class WaitTicksThreadWithSmallValue extends Thread
 {
-    private LogicalTime2 logicalTime;
+    private LogicalTime logicalTime;
 
-    public WaitTicksThreadWithSmallValue(String name, LogicalTime2 logicalTime)
+    public WaitTicksThreadWithSmallValue(String name, LogicalTime logicalTime)
     {
         this.setName(name);
         this.logicalTime = logicalTime;
@@ -14,7 +14,7 @@ public class WaitTicksThreadWithSmallValue extends Thread
     @Override
     public void run()
     {
-        // Siehe Aufgabe Paramter n = 5;
+        // Siehe Aufgabe Paramter n = 7;
         this.logicalTime.waitTicks(7);
     }
 
