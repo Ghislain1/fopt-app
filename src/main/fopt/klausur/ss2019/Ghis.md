@@ -17,36 +17,45 @@
 
 ```java 
 
+ 
 public class LogicalTime
 {
-       private int ticks;
+    private int overallTicks;
 
-    private LinkedList<Thread> threadLinkedList;
+    private LinkedList<Thread> runningThreadList;
 
-    public LogicalTime2()
+    public LogicalTime()
     {
-        this.threadLinkedList = new LinkedList<>();
-        this.ticks = 0; // NOT Zero , because the first enter thread should wait
+
+        this.overallTicks = 0;
+        this.runningThreadList = new LinkedList<Thread>();
     }
 
     public synchronized void tick()
     {
-        this.ticks--;
+        this.overallTicks++;
         this.notifyAll();
+        System.out.println(this.overallTicks);
+
+    }
+
+    public synchronized boolean hasThreadInWaiting()
+    {
+        return !this.runningThreadList.isEmpty();
     }
 
     public synchronized void waitTicks(int waitingTicks)
     {
-        // Einfuegen in der Wartenschlange
-        this.threadLinkedList.add(Thread.currentThread());
+        // Append to list
+        this.runningThreadList.add(Thread.currentThread());
+        int ticks = this.overallTicks + waitingTicks;
 
-        // Wenn das erste Element in der Warteschlange nicht das Aktual ist dann
-        // warten oder ticks noch nicht null erreicht hat --> Dann warten
-        while (this.ticks == 0 || this.threadLinkedList.get(0) != Thread.currentThread())
+        while (ticks > this.overallTicks )
         {
             try
             {
-              this.wait();
+                System.out.println(Thread.currentThread().getName() + " *** WAITING  ====>  " + waitingTicks);
+                this.wait();
 
             }
             catch (Exception e)
@@ -54,20 +63,13 @@ public class LogicalTime
                 e.printStackTrace();
             }
         }
-
-        // Raus von der Warteschlage
-        this.threadLinkedList.remove(Thread.currentThread());
-
-        // The Ticks bereitstellen
-        this.ticks = waitingTicks;
-
-        //
-        this.notifyAll();
+        this.runningThreadList.remove(Thread.currentThread());
         System.out.println(Thread.currentThread().getName() + " ****   PASSING   *** ");
 
     }
 
 }
+ 
 ```
 * c) notifyAll()-Methode ist sehr nötig: Durch VeÃ¤nderung des Zustands kann mehrere Thread Ihre While-Wait-Schleife verlassen und wir haben sogar mehrere Warte-bedinungen.
 
