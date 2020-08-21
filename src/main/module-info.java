@@ -70,4 +70,9 @@ module fopt
 
     exports fopt.pp2020.tag3;
 
+    // In Ordner der Klassendatein soll rmiregistry gestartet werden
+    // Demonstraktion von Call-By-Value in RMI -> Serialization
+    // Effekt von synchronized bei RMI-Method
+    exports fopt.video.rmi.sleep;
+
 }
