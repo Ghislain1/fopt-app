@@ -1,4 +1,4 @@
-package fopt.klausur.lin.aufgabe2;
+package fopt.pp2020.lin.tag4;
 
 public class LogicalTime {
 
